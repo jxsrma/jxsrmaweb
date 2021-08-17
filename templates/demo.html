@@ -1,0 +1,69 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}">
+    <title>JXSRMA | Demo Submittion</title>
+
+</head>
+
+<body>
+
+    <div class="maininfocontainer">
+        {% include "header.html" %}
+
+        <h1>Demo Submittion</h1>
+        <p>
+            Send your one of the best demos, <br> I will review them and give constructive feedback.
+        </p>
+
+    </div>
+    <div class="formcontainer">
+
+        <form action="" method="POST">
+
+            <div class="artinfo">
+                <label for="artname">Artist Info</label>
+                <br>
+                <input type="text" class="artname" placeholder="Enter Your Artist Name">
+                <input type="text" class="artname" placeholder="Enter Your Email">
+
+
+            </div>
+
+            <div class="trackinfo">
+
+                <label for="artname">Track Info</label>
+                <br>
+                <input type="text" class="artname" placeholder="Enter Track Title">
+                <input type="url" class="artname" placeholder="Enter Track URL">
+                <br>
+
+            </div>
+
+            <div class="extrainfo">
+
+                <label for="artname">Notes</label>
+                <br>
+                <textarea type="text" class="artname" placeholder="Enter any information related to Track. Also add your Social links"></textarea>
+                <br>
+
+                <div class="btncont">
+                    <input type="submit" value="Submit Track" class="btn">
+
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    {% include "footer.html" %}
+
+</body>
+
+</html>

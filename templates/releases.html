@@ -1,0 +1,79 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>JXSRMA | Releases</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/releases.css' %}">
+
+</head>
+
+<body>
+    <div class="backg">
+        {% include "header.html" %}
+        <div class="maininfocontainer">
+            <div class="heading">My Releases</div>
+            <div class="para">Click the album art, and choose you favorite streaming platform.</div>
+        </div>
+
+
+
+    </div>
+
+    <article class="flow">
+        <div class="release">
+            <ul class="auto-grid" role="list">
+
+                <li>
+                    <a href="https://songwhip.com/jxsrma/boss" target=_blank " class="album ">
+                        <h2 class="profile__name ">Boss ft. Feez</h2>
+                        <p>Hard Trap</p>
+                        <img alt="boss " src="{% static 'images/album/boss.jpg' %} " />
+                    </a>
+                    </li>
+                    <li>
+                        <a href="https://songwhip.com/jxsrma/divergent " target=_blank " class="album ">
+                        <h2 class="profile__name ">Divergent</h2>
+                        <p>Progressive House</p>
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/divergent.jpg' %}" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=bntrkMmpmDI " target=_blank " class="album ">
+                        <h2 class="profile__name ">Runaway Remix</h2>
+                        <p>Slap House</p>
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/runaway.jpg' %} " />
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://songwhip.com/jxsrma/enlight " target=_blank " class="album ">
+                        <h2 class="profile__name ">Enlight</h2>
+                        <p>Future Bass</p>
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/enlight.jpg' %}" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://songwhip.com/jxsrma/tales" target=_blank " class="album ">
+                        <h2 class="profile__name ">Tales</h2>
+                        <p>House</p>
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/tales.jpg' %} " />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://songwhip.com/jxsrma/all-together-extended-mix " target=_blank " class="album ">
+                        <h2 class="profile__name ">All Together</h2>
+                        <p>House</p>
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/alltogether.jpg' %}" />
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </article>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+
+</html>

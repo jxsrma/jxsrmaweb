@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="hcontainer">
+        <nav class="navbar">
+            <input type="checkbox" name="" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <label for="logo">
+                <a class="active" href="{% url 'index' %}"><img src="{% static 'images/logo/logo_w.png' %}" class="logo"></a>
+            </label>
+            <ul>
+                <li><a class="active1" href="{% url 'index' %}">Home</a></li>
+                <li><a class="active2" href="{% url 'bio' %}">Biography</a></li>
+                <li><a class="active3" href="{% url 'rel' %}">Releases</a></li>
+                <li><a class="active4" href="{% url 'shop' %}">Shop</a></li>
+                <li><a class="active5" href="{% url 'demo' %}">Demos</a></li>
+                <li><a class="active6" href="{% url 'cont' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+</body>
+
+</html>

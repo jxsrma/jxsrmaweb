@@ -1,0 +1,37 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JXSRMA | Official Website</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body>
+
+    <div class="fix">
+        <div class="banner">
+
+            {% include "header.html" %}
+            <div class="home">
+                <h1>WELCOME</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="homep">
+        <h1>Latest Release</h1>
+        <iframe src="https://www.youtube.com/embed/SpNc8FHuq1Y" title="JXSRMA - Boss Ft. Feez" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+
+
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hcontainer {
+    width: 100%;
+    /*background-color: rgb(0, 0, 0);*/
+    background-size: cover;
+    background-position: center;
+    left: 0%;
+    object-fit: scale-down;
+}
+
+.navbar {
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 100px;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 5px 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 1px;
+    width: 0;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 1s;
+}
+
+
+/*.navbar ul li a .activ {
+    width: 100%;
+}*/
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+a:hover,
+a:active {
+    background: none;
+    color: rgb(255, 255, 255);
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width: 925px) {
+    label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+        z-index: 11;
+    }
+    .navbar ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 950px) {
+    .checkbtn {
+        display: block;
+        z-index: 10;
+    }
+    .navbar ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        padding-top: 100px;
+        background: rgb(0, 0, 0);
+        top: 0px;
+        left: -100%;
+        border-left: 50px;
+        transition: all .5s;
+        z-index: 9;
+    }
+    .navbar ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+        padding-left: 70px;
+    }
+    .navbar ul li a {
+        font-size: 20px;
+    }
+    .navbar a:hover,
+    .navbar a:active {
+        background: none;
+        color: rgb(255, 255, 255);
+        width: 100%;
+    }
+    #check:checked~ul {
+        left: 0;
+    }
+    .navbar ul li:hover::after {
+        width: 250px;
+        justify-content: center;
+    }
+}
