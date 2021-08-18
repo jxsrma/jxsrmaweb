@@ -27,11 +27,13 @@
 
         <form action="" method="POST">
 
+            {% csrf_token %}
+
             <div class="artinfo">
                 <label for="artname">Artist Info</label>
                 <br>
-                <input type="text" class="artname" placeholder="Enter Your Artist Name">
-                <input type="text" class="email" placeholder="Enter Your Email">
+                <input type="text" name="artname" placeholder="Enter Your Artist Name">
+                <input type="email" name="email" placeholder="Enter Your Email">
 
 
             </div>
@@ -40,8 +42,8 @@
 
                 <label for="artname">Track Info</label>
                 <br>
-                <input type="text" class="trackname" placeholder="Enter Track Title">
-                <input type="url" class="trackurl" placeholder="Enter Track URL">
+                <input type="text" name="trackname" placeholder="Enter Track Title">
+                <input type="url" name="trackurl" placeholder="Enter Track URL">
                 <br>
 
             </div>
@@ -50,7 +52,7 @@
 
                 <label for="artname">Notes</label>
                 <br>
-                <textarea type="text" class="infotext" placeholder="Enter any information related to Track. Also add your Social links" cols="30" rows="5"></textarea>
+                <textarea type="text" name="infotext" placeholder="Enter any information related to Track. Also add your Social links" cols="30" rows="5"></textarea>
                 <br>
 
                 <div class="btncont">
