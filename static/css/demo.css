@@ -110,3 +110,8 @@ body {
     color: white;
     background-color: black;
 }
+
+textarea {
+    outline: none;
+    overflow: auto;
+}
