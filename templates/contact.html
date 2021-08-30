@@ -1,4 +1,4 @@
- {% load static %}
+<!-- {% load static %} -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,19 +8,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JXSRMA | Shop</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="../static/css/contact.css">
 
 </head>
 
 <body>
-    <div class="shopcont">
-        {% include "header.html" %}
 
-        <h1>COMING SOON</h1>
+    <div class="contactus">
+        <!-- {% include "header.html" %} -->
+
 
     </div>
+    <div class="contform">
+        <div class="info">
+            <label for="name">Your Info</label>
+            <br>
+            <input type="text" name="name" placeholder="Enter Your Name">
+            <input type="email" name="email" placeholder="Enter Your Email">
 
-    {% include "footer.html" %}
+
+        </div>
+
+        <div class="subject">
+
+            <label for="subject">Subject</label>
+            <br>
+            <input type="text" name="subject" placeholder="Subject">
+
+        </div>
+
+        <div class="message">
+
+            <label for="artname">Message</label>
+            <br>
+            <textarea type="text" name="conserns" placeholder="Enter Your concerns" cols="30" rows="5"></textarea>
+            <br>
+
+            <div class="btncont">
+                <input type="submit" value="Submit Track" class="btn">
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- {% include "footer.html" %} -->
 </body>
 
 </html>
