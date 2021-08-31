@@ -21,21 +21,21 @@ body {
 }
 
 .contactus {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/portrait.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/g11.jpg);
     background-size: cover;
     background-position: center;
     object-fit: scale-down;
 }
 
 .contactus h1 {
-    padding-top: 15px;
+    padding-top: 100px;
     text-align: center;
     font-size: 70px;
     color: white;
 }
 .contactus p {
-    padding-top: 5px;
-    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 50px;
     font-size: 25px;
     text-align: center;
     color: white;
