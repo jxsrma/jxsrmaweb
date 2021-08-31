@@ -28,13 +28,18 @@ body {
 }
 
 .contactus h1 {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 15px;
     text-align: center;
     font-size: 70px;
     color: white;
 }
-
+.contactus p {
+    padding-top: 5px;
+    padding-bottom: 30px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
 .contform {
     padding: 50px;
     background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
@@ -47,5 +52,3 @@ body {
 .subject {
     padding-bottom: 50px;
 }
-
-.
