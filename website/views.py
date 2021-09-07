@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .models import Demosubs, ImgGallery
+import random
 
 # Create your views here.
 
@@ -8,7 +9,7 @@ def index(request):
     return render(request,'index.html')
 
 def bio(request):
-    galleryImg = ImgGallery.objects.all()
+    galleryImg = ImgGallery.objects.raw('select * from website_imggallery order by rand()')
     return render(request,'bio.html',{'galleryImg': galleryImg})
 
 def rel(request):
