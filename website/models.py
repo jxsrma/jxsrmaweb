@@ -8,3 +8,7 @@ class Demosubs(models.Model):
     t_name = models.CharField(max_length=100)
     t_url = models.CharField(max_length=100)
     t_dis = models.TextField()
+
+class ImgGallery(models.Model):
+    link = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='images')

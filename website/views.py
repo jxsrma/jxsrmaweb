@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import Demosubs
+from .models import Demosubs, ImgGallery
 
 # Create your views here.
 
@@ -8,7 +8,8 @@ def index(request):
     return render(request,'index.html')
 
 def bio(request):
-    return render(request,'bio.html')
+    galleryImg = ImgGallery.objects.all()
+    return render(request,'bio.html',{'galleryImg': galleryImg})
 
 def rel(request):
     return render(request,'releases.html')
