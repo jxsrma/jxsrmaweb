@@ -14,10 +14,8 @@
 
 <body>
 
-
     <div class="biocontainer">
         {% include "header.html" %}
-
 
         <div class="info">
 
@@ -33,114 +31,20 @@
         </div>
 
     </div>
-
-
-
-    <!-- images/Ropeway.jpg <div class="gallery-cont">
-
-
-        <div class="gallery">
-            <div class="gallery__column">
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g1.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g2.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g3.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-            </div>
-
-            <div class="gallery__column">
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g4.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g12.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g6.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-
-
-            </div>
-
-            <div class="gallery__column">
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g7.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g5.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-
-
-
-            </div>
-
-            <div class="gallery__column">
-
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g9.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g10.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-                <a href="" target="_blank" class="gallery__link">
-                    <figure class="gallery__thumb">
-                        <img src="{% static 'images/gallery/g8.jpg' %}" alt="" class="gallery__image">
-                        <figcaption class="gallery__caption"></figcaption>
-                    </figure>
-                </a>
-            </div>
-        </div> 
-    </div> -->
     <div class="gallery-cont">
-
-
         <div class="gallery">
             <div class="gallery__column">
-                    {% for galleryloop in galleryImg %}
-                        <a href="{{galleryloop.link}}" target="_blank" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="{{galleryloop.img.url}}" alt="" class="gallery__image">
-                            </figure>
-                        </a>
-                    {% endfor %}
+                {% for galleryloop in galleryImg %}
+                <a href="{{galleryloop.link}}" target="_blank" class="gallery__link">
+                    <figure class="gallery__thumb">
+                        <img src="{{galleryloop.img.url}}" alt="" class="gallery__image">
+                    </figure>
+                </a>
+                {% endfor %}
             </div>
-        </div> 
+        </div>
     </div>
-    
+
 
 
 

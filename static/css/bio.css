@@ -52,11 +52,13 @@ body {
 .gallery {
     padding: 2px;
     transition: 0.3s;
-    background-color: black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/g8BG.jpg);
+    background-size: cover;
+    object-fit: scale-down;
 }
 
 .gallery:hover .gallery__image {
-    filter: grayscale(1);
+    filter: grayscale(1) blur(2px);
 }
 
 .gallery__column {
@@ -64,7 +66,6 @@ body {
     max-width: 100%;
     column-gap: 0;
     column-rule-width: 40px;
-
 }
 
 .gallery__link {
@@ -72,33 +73,29 @@ body {
 }
 
 .gallery__link:hover .gallery__image {
-    filter: grayscale(0);
-    
+    filter: grayscale(0) blur(0);
 }
 
 .gallery__link:hover .gallery__caption {
     opacity: 1;
 }
 
-.gallery__thumb{
+.gallery__thumb {
     position: relative;
     overflow: hidden;
     display: block;
-    
 }
+
 .gallery__image {
     display: block;
     width: 100%;
-    transition: 0.3s , 300ms transform ease-in-out;
+    transition: 0.3s, 1s transform ease-in-out;
     overflow: hidden;
-    
 }
 
 .gallery__image:hover {
-    transform: scale(1.1) rotate(1deg);
-    
+    transform: scale(1.1);
 }
-
 
 .gallery__caption {
     position: absolute;
@@ -132,6 +129,7 @@ body {
         column-count: 3;
     }
 }
+
 @media (max-width: 700px) {
     .gallery__column {
         column-count: 2;

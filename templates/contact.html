@@ -21,38 +21,40 @@
         <p>Your Query will be recieved by me</p>
 
 
-
     </div>
     <div class="contform">
-        <div class="info">
-            <label for="name">Your Info</label>
-            <br>
-            <input type="text" name="name" placeholder="Enter Your Name">
-            <input type="email" name="email" placeholder="Enter Your Email">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="info">
+                <label for="name">Your Info</label>
+                <br>
+                <input type="text" name="Cname" placeholder="Enter Your Name">
+                <input type="email" name="Memail" placeholder="Enter Your Email">
 
-
-        </div>
-
-        <div class="subject">
-
-            <label for="subject">Subject</label>
-            <br>
-            <input type="text" name="subject" placeholder="Subject">
-
-        </div>
-
-        <div class="message">
-
-            <label for="artname">Message</label>
-            <br>
-            <textarea type="text" name="conserns" placeholder="Enter Your concerns" cols="30" rows="5"></textarea>
-            <br>
-
-            <div class="btncont">
-                <input type="submit" value="Submit Track" class="btn">
 
             </div>
-        </div>
+
+            <div class="subject">
+
+                <label for="subject">Subject</label>
+                <br>
+                <input type="text" name="Msubject" placeholder="Subject">
+
+            </div>
+
+            <div class="message">
+
+                <label for="artname">Message</label>
+                <br>
+                <textarea type="text" name="Mconserns" placeholder="Enter Your concerns" cols="30" rows="5"></textarea>
+                <br>
+
+                <div class="btncont">
+                    <input type="submit" value="Send" class="btn">
+
+                </div>
+            </div>
+        </form>
     </div>
 
 

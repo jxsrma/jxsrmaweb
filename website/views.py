@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.contrib import messages
-from .models import Demosubs, ImgGallery
-import random
+from .models import Demosubs, ImgGallery, Contact
 
 # Create your views here.
 
@@ -37,4 +35,16 @@ def demo(request):
 
 
 def cont(request):
-    return render(request,'contact.html')
+    if request.method == 'POST':
+        Cname = request.POST['Cname']
+        Cemail = request.POST['Memail']
+        Csubject = request.POST['Msubject']
+        Ctext = request.POST['Mconserns']
+        print('success')
+
+        meg = Contact(name = Cname, email = Cemail, subject = Csubject, message = Ctext )
+        meg.save()
+        return render(request,'contact.html')
+
+    else:    
+        return render(request,'contact.html')
