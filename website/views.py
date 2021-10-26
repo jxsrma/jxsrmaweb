@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Demosubs, ImgGallery, Contact
+from .models import Demosubs, ImgGallery, Contact, Released
 
 # Create your views here.
 
@@ -11,7 +11,8 @@ def bio(request):
     return render(request,'bio.html',{'galleryImg': galleryImg})
 
 def rel(request):
-    return render(request,'releases.html')
+    relSongData = Released.objects.raw('select * from website_released order by id DESC ')
+    return render(request,'releases.html',{'relSongData':relSongData})
 
 def shop(request):
     return render(request,'shop.html')

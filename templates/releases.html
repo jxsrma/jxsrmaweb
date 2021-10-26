@@ -22,20 +22,32 @@
 
     <article class="flow">
         <div class="release">
+
+
             <ul class="auto-grid" role="list">
 
+                {% for releaseloop in relSongData %}
                 <li>
-                    <a href="https://songwhip.com/jxsrma/boss" target=_blank " class="album ">
+                    <a href="{{releaseloop.sLink}}" target=_blank " class="album ">
+                        <h2 class="profile__name ">{{releaseloop.name}}</h2>
+                        <p>{{releaseloop.genre}}</p>
+                        <img alt="{{releaseloop.altImg}} " src="{{releaseloop.albumart.url}} " />
+                    </a>
+                </li>
+                {% endfor %}
+
+                <!-- <li>
+                    <a href="https://songwhip.com/jxsrma/boss " target=_blank " class="album ">
                         <h2 class="profile__name ">Boss ft. Feez</h2>
                         <p>Hard Trap</p>
                         <img alt="boss " src="{% static 'images/album/boss.jpg' %} " />
                     </a>
-                    </li>
-                    <li>
-                        <a href="https://songwhip.com/jxsrma/divergent " target=_blank " class="album ">
+                </li>
+                <li>
+                    <a href="https://songwhip.com/jxsrma/divergent " target=_blank " class="album ">
                         <h2 class="profile__name ">Divergent</h2>
                         <p>Progressive House</p>
-                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/divergent.jpg' %}" />
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/divergent.jpg' %} " />
                     </a>
                 </li>
                 <li>
@@ -45,16 +57,16 @@
                         <img alt="Profile shot for Celina Harris " src="{% static 'images/album/runaway.jpg' %} " />
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="https://songwhip.com/jxsrma/enlight " target=_blank " class="album ">
                         <h2 class="profile__name ">Enlight</h2>
                         <p>Future Bass</p>
-                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/enlight.jpg' %}" />
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/enlight.jpg' %} " />
                     </a>
                 </li>
                 <li>
-                    <a href="https://songwhip.com/jxsrma/tales" target=_blank " class="album ">
+                    <a href="https://songwhip.com/jxsrma/tales " target=_blank " class="album ">
                         <h2 class="profile__name ">Tales</h2>
                         <p>House</p>
                         <img alt="Profile shot for Celina Harris " src="{% static 'images/album/tales.jpg' %} " />
@@ -64,16 +76,19 @@
                     <a href="https://songwhip.com/jxsrma/all-together-extended-mix " target=_blank " class="album ">
                         <h2 class="profile__name ">All Together</h2>
                         <p>House</p>
-                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/alltogether.jpg' %}" />
+                        <img alt="Profile shot for Celina Harris " src="{% static 'images/album/alltogether.jpg' %} " />
                     </a>
-                </li>
+                </li> -->
 
             </ul>
+
+
+            
         </div>
     </article>
     </div>
 
-    {% include "footer.html" %}
+    {% include "footer.html " %}
 </body>
 
 </html>
