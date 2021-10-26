@@ -18,3 +18,12 @@ class Contact(models.Model):
     email = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)
     message = models.TextField()
+
+class Released(models.Model):
+    name = models.CharField(max_length=100)
+    altImg = models.CharField(max_length=100)
+    albumart = models.ImageField(upload_to='albumArt')
+    sLink = models.CharField(max_length=100)
+    genre = models.CharField(max_length=100)
+
+    

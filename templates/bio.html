@@ -1,35 +1,31 @@
- {% load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bio.css' %}">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bio.css' %}" />
     <title>JXSRMA | Biograpgy</title>
-
 </head>
 
 <body>
-
     <div class="biocontainer">
         {% include "header.html" %}
 
         <div class="info">
-
             <div class="imgs">
-                <img src="{% static 'images/g11prof.jpg' %}" alt="Profile">
+                <img src="{% static 'images/g11prof.jpg' %}" alt="Profile" />
             </div>
-            <h1>
-                JXSRMA
-            </h1>
-            <p>Jash Sharma is a young and growing music producer from Indore, India born on 3rd August 2001. He started working in the field of music in the year 2017. Noting the fact that without having any music background he successfully released his
-                first music piece in the year 2020 titled as "All Together" under the pseudonym JXSRMA. Apart from his passion in the music field he is also a computer geek, pursuing his graduation in the field of computer science. He is still learning
-                and working in the field of music, being a music producer he is an amazing artist. After his first release he has released some more of his work and the work he has done is commendable.</p>
+            <h1>JXSRMA</h1>
+            <p>
+                Jash Sharma is a young and growing music producer from Indore, India born on 3rd August 2001. He started working in the field of music in the year 2017. Noting the fact that without having any music background he successfully released his first music
+                piece in the year 2020 titled as "All Together" under the pseudonym JXSRMA. Apart from his passion in the music field he is also a computer geek, pursuing his graduation in the field of computer science. He is still learning and working
+                in the field of music, being a music producer he is an amazing artist. After his first release he has released some more of his work and the work he has done is commendable.
+            </p>
         </div>
-
     </div>
     <div class="gallery-cont">
         <div class="gallery">
@@ -37,17 +33,13 @@
                 {% for galleryloop in galleryImg %}
                 <a href="{{galleryloop.link}}" target="_blank" class="gallery__link">
                     <figure class="gallery__thumb">
-                        <img src="{{galleryloop.img.url}}" alt="" class="gallery__image">
+                        <img src="{{galleryloop.img.url}}" alt="" class="gallery__image" />
                     </figure>
                 </a>
                 {% endfor %}
             </div>
         </div>
     </div>
-
-
-
-
 
     {% include "footer.html" %}
 </body>
