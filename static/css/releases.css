@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap');
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../images/g8BG.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../images/backg/footpathBG.jpg);
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -43,16 +43,6 @@ body {
     text-align: center;
 }
 
-
-/*.maininfocontainer p {
-    padding-top: 20px;
-    padding-bottom: 50px;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-}
-*/
-
 h1 {
     font-weight: 900;
     font-size: 2.7rem;
@@ -78,11 +68,6 @@ ul {
 .auto-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, 20rem);
-    /*grid-template-columns: repeat(auto-fill, minmax(10rem, 20rem));*/
-    /*grid-template-columns: repeat(auto-fill, minmax(--auto-grid-min-size, 14fr));*/
-    /*grid-template-columns: repeat( auto-fit, minmax(var(--auto-grid-min-size, 10rem), 1fr));*/
-    /*grid-template-columns: repeat( auto-fit), minmax(200px, 1fr)));*/
-    /* grid-gap: var(--auto-grid-gap, 0);*/
     margin: 50px;
     justify-content: center;
     object-fit: cover;

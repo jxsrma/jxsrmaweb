@@ -15,7 +15,7 @@ body {
 }
 
 .biocontainer {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/portrait.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/backg/portrait.jpg);
     background-size: cover;
     background-position: center;
     object-fit: scale-down;
@@ -52,7 +52,7 @@ body {
 .gallery {
     padding: 2px;
     transition: 0.3s;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/g8BG.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/backg/footpathBG.jpg);
     background-size: cover;
     object-fit: scale-down;
 }

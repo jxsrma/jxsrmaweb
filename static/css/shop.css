@@ -21,7 +21,7 @@
     }
     
     .shopcont {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/portrait.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/backg/portrait.jpg);
         background-size: cover;
         background-position: center;
         object-fit: scale-down;
