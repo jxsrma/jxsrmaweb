@@ -48,9 +48,46 @@ body {
 }
 
 .info {
+    font-size: 30px;
+    color: #000;
     padding-bottom: 50px;
 }
 
+.info input {
+    width: 30%;
+    height: 30px;
+}
+
 .subject {
+    font-size: 30px;
+    color: black;
+}
+
+.subject input {
+    width: 30%;
+    height: 30px;
+}
+
+.message {
+    padding-top: 50px;
+    font-size: 30px;
+    color: black;
+}
+
+.message textarea {
+    height: 100px;
+    width: 60%;
+}
+
+.btncont {
+    padding-top: 20px;
     padding-bottom: 50px;
+}
+
+.contform .btn {
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    background-color: black;
 }
