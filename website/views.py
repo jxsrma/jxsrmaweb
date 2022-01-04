@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Demosubs, ImgGallery, Contact, Released
+# import pandas
 
 # Create your views here.
 
@@ -8,6 +9,17 @@ def index(request):
 
 def bio(request):
     galleryImg = ImgGallery.objects.raw('select * from website_imggallery order by rand()')
+    # for x in galleryImg:
+    #     print(x[0])
+    # galCol = galleryImg.columns
+    # for row in galleryImg:
+    #     print(galCol.__getattribute__(galCol[0]))
+    # class Tab(models.Model):
+    #     field1 = models.BooleanField()
+    #     field2 = models.PositiveIntegerField()
+    # objs = Tab.objects.raw(galleryImg)
+    # for obj in objs:
+    #     print obj.field1, obj.field2
     return render(request,'bio.html',{'galleryImg': galleryImg})
 
 def rel(request):
