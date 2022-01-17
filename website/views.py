@@ -1,4 +1,6 @@
 from django.shortcuts import render
+import json
+from django.http.response import HttpResponse, JsonResponse
 from .models import Demosubs, ImgGallery, Contact, Released
 # import pandas
 
@@ -20,11 +22,24 @@ def bio(request):
     # objs = Tab.objects.raw(galleryImg)
     # for obj in objs:
     #     print obj.field1, obj.field2
-    return render(request,'bio.html',{'galleryImg': galleryImg})
+    #return render(request,'bio.html',{'galleryImg': galleryImg})
+    img_Dict = {"link":[],"img":[]}
+    for imgs in galleryImg:
+        img_Dict['link'].append(str(imgs.link))
+        img_Dict['img'].append(str(imgs.img))
+    return JsonResponse(img_Dict)
 
 def rel(request):
     relSongData = Released.objects.raw('select * from website_released order by id DESC ')
-    return render(request,'releases.html',{'relSongData':relSongData})
+    rel_Dict = {"name":[],"altImg":[],"albumart":[],"sLink":[],"genre":[]}
+    for rels in relSongData:
+        rel_Dict['name'].append(str(rels.name))
+        rel_Dict['altImg'].append(str(rels.altImg))
+        rel_Dict['albumart'].append(str(rels.albumart))
+        rel_Dict['sLink'].append(str(rels.sLink))
+        rel_Dict['genre'].append(str(rels.genre))
+        
+    return JsonResponse(rel_Dict)
 
 def shop(request):
     return render(request,'shop.html')
