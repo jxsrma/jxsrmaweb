@@ -4,7 +4,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.active1::after {
+/* .active1::after {
     content: '';
     height: 1px;
     left: 0;
@@ -12,7 +12,7 @@ body {
     background: rgb(255, 255, 255);
     position: absolute;
     bottom: -5px;
-}
+} */
 
 * {
     margin: 0;
