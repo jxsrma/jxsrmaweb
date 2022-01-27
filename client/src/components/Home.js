@@ -17,8 +17,6 @@ document.title = 'JXSRMA | ' + props.title
         <div className="homep">
           <h1>Latest Release</h1>
           <iframe
-            width="853"
-            height="480"
             src="https://www.youtube.com/embed/zCSOgzEbbpE"
             title="YouTube video player"
             frameborder="0"
