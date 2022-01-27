@@ -1,9 +1,9 @@
 import React from 'react';
-import "./footer.css";
+import FooterCSS from '../CSS/Footer.css'
 
-export default function Footer() {
-    return (
-        <footer className="footer">
+export const Footer = () => {
+  return (
+        <footer className="footer" style={FooterCSS}>
             <div className="fcontainer">
                 <div className="row">
                     <div className="footer-col">
@@ -37,7 +37,8 @@ export default function Footer() {
                 </div>
 
             </div>
-            <p>©2021 JXSRMA, LLC. All Rights Reserved</p>
-        </footer>            
-    )
-}
+            <p>Copyright &copy; {new Date().getFullYear()} JXSRMA, LLC. All Rights Reserved</p>
+        </footer>
+
+  );
+};
