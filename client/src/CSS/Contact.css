@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap");
 body {
-    line-height: 1.5;
-    font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* .active6::after {
@@ -15,79 +15,97 @@ body {
 } */
 
 @media (max-width: 950px) {
-    .active6::after {
-        width: 250px;
-    }
+  .active6::after {
+    width: 250px;
+  }
 }
 
 .contactus {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/backg/proBG.jpg);
-    background-size: cover;
-    background-position: center;
-    object-fit: scale-down;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../images/backg/proBG.jpg);
+  background-size: cover;
+  background-position: center;
+  object-fit: scale-down;
 }
 
 .contactus h1 {
-    padding-top: 100px;
-    text-align: center;
-    font-size: 70px;
-    color: white;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 70px;
+  color: white;
 }
 
 .contactus p {
-    padding-top: 30px;
-    padding-bottom: 50px;
-    font-size: 25px;
-    text-align: center;
-    color: white;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
 }
 
 .contform {
-    padding: 50px;
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
+  padding: 50px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(185, 185, 185)
+  );
 }
-
+.info label{
+    font-size: 20px;
+}
+.subject label{
+    font-size: 20px;
+}
+.message label{
+    font-size: 20px;
+}
 .contform .info {
-    font-size: 30px;
-    color: #000;
-    padding-bottom: 50px;
+  font-size: 30px;
+  color: #000;
+  padding-bottom: 50px;
 }
 
 .contform .info input {
-    width: 30%;
-    height: 30px;
+  width: 30%;
+  height: 30px;
 }
 
 .subject {
-    font-size: 30px;
-    color: black;
+  font-size: 30px;
+  color: black;
 }
 
 .subject input {
-    width: 30%;
-    height: 30px;
+  width: 30%;
+  height: 30px;
 }
 
 .message {
-    padding-top: 50px;
-    font-size: 30px;
-    color: black;
+  padding-top: 50px;
+  font-size: 30px;
+  color: black;
 }
 
 .message textarea {
-    height: 100px;
-    width: 60%;
+  height: 100px;
+  width: 60%;
 }
 
 .btncont {
-    padding-top: 20px;
-    padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .contform .btn {
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 10px;
-    color: white;
-    background-color: black;
+  border-radius: 5px;
+  border: 1px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  color: white;
+  background-color: black;
 }

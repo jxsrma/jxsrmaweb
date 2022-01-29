@@ -21,21 +21,21 @@ body {
     object-fit: scale-down;
 }
 
-.info {
+.bioInfo {
     color: #fff;
     padding: 50px;
     justify-content: left;
     padding-top: 25vh;
 }
 
-.info h1 {
+.bioInfo h1 {
     padding-top: 40px;
     padding-bottom: 50px;
     padding-left: 30px;
     font-size: 50px;
 }
 
-.info p {
+.bioInfo p {
     text-indent: 50px;
     text-align: justify;
 }
@@ -116,7 +116,7 @@ body {
         margin-right: auto;
         transition: .05s;
     }
-    .info h1 {
+    .bioInfo h1 {
         margin-left: auto;
         margin-right: auto;
         text-align: center;

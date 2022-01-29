@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap");
 body {
-    line-height: 1.5;
-    font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* .active5::after {
@@ -15,103 +15,114 @@ body {
 } */
 
 @media (max-width: 950px) {
-    .active5::after {
-        width: 250px;
-    }
+  .active5::after {
+    width: 250px;
+  }
 }
 
 .maininfocontainer {
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/backg/proBG.jpg);
-    background-size: cover;
-    background-position: center;
-    object-fit: scale-down;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../images/backg/proBG.jpg);
+  background-size: cover;
+  background-position: center;
+  object-fit: scale-down;
 }
 
 .maininfocontainer h1 {
-    padding-top: 100px;
-    font-size: 60px;
-    text-align: center;
-    color: white;
+  padding-top: 100px;
+  font-size: 60px;
+  text-align: center;
+  color: white;
 }
 
 .maininfocontainer p {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-size: 20px;
-    text-align: center;
-    color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
 }
 
 @media (max-width: 950px) {
-    .maininfocontainer h1 {
-        padding-top: 100px;
-        font-size: 275%;
-        text-align: center;
-        color: white;
-    }
-    .maininfocontainer p {
-        padding-top: 50px;
-        padding-bottom: 50px;
-        font-size: 150%;
-        text-align: center;
-        color: white;
-    }
+  .maininfocontainer h1 {
+    padding-top: 100px;
+    font-size: 275%;
+    text-align: center;
+    color: white;
+  }
+  .maininfocontainer p {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 150%;
+    text-align: center;
+    color: white;
+  }
 }
 
 .formcontainer {
-    padding-top: 100px;
-    padding-left: 100px;
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(185, 185, 185));
+  padding-top: 100px;
+  padding-left: 100px;
+  /* background-color: rgb(0, 0, 0); */
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(168, 168, 168)
+  );
 }
 
 .artinfo {
-    font-size: 30px;
-    color: black;
+  font-size: 20px;
+  color: black;
 }
 
 .artinfo input {
-    width: 30%;
-    height: 30px;
+  width: 30%;
+  height: 30px;
 }
 
 .trackinfo {
-    padding-top: 50px;
-    font-size: 30px;
-    color: black;
+  padding-top: 50px;
+  font-size: 20px;
+  color: black;
 }
 
 .trackinfo input {
-    width: 30%;
-    height: 30px;
+  width: 30%;
+  height: 30px;
 }
 
 .extrainfo {
-    padding-top: 50px;
-    font-size: 30px;
-    color: black;
+  padding-top: 50px;
+  font-size: 20px;
+  color: black;
 }
 
 .extrainfo textarea {
-    height: 100px;
-    width: 60%;
+  height: 100px;
+  width: 60%;
 }
 
 .btncont {
-    padding-top: 20px;
-    padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .formcontainer .btn {
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 10px;
-    color: white;
-    background-color: black;
+  border-radius: 5px;
+  border: 1px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  color: white;
+  background-color: black;
 }
 
 textarea {
-    outline: none;
-    overflow: auto;
+  outline: none;
+  overflow: auto;
 }

@@ -9,7 +9,7 @@ document.title = 'JXSRMA | ' + props.title
   return (
     <>
       <div className="biocontainer" style={BioCSS}>
-        <div className="info">
+        <div className="bioInfo">
           <div className="imgs">
             <img src={profilePic} alt="Profile" />
           </div>
@@ -31,6 +31,7 @@ document.title = 'JXSRMA | ' + props.title
       </div>
       <div className="gallery-cont">
         <div className="gallery">
+          <img src ="../static/images/images/badminton.jpg" />
           {/* <div className="gallery__column">
               {% for galleryloop in galleryImg %}
               <a href="{{galleryloop.link}}" target="_blank" className="gallery__link">

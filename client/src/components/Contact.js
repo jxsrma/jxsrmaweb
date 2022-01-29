@@ -15,7 +15,7 @@ export const Contact = (props) => {
         <div className="contform">
             <form action="" method="POST">
                 <div className="info">
-                    <label for="name">Your Info</label>
+                    <label>Your Info</label>
                     <br />
                     <input type="text" name="Cname" placeholder="Enter Your Name" />
                     <input type="email" name="Memail" placeholder="Enter Your Email" />
@@ -25,7 +25,7 @@ export const Contact = (props) => {
 
                 <div className="subject">
 
-                    <label for="subject">Subject</label>
+                    <label >Subject</label>
                     <br />
                     <input type="text" name="Msubject" placeholder="Subject" />
 
@@ -33,7 +33,7 @@ export const Contact = (props) => {
 
                 <div className="message">
 
-                    <label for="artname">Message</label>
+                    <label >Message</label>
                     <br />
                     <textarea type="text" name="Mconserns" placeholder="Enter Your concerns" cols="30" rows="5"></textarea>
                     <br />
