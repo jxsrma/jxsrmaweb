@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 # Create your models here.
@@ -14,6 +15,7 @@ class ImgGallery(models.Model):
     img = models.ImageField(upload_to='images')
 
 class Contact(models.Model):
+    date = models.DateTimeField(default=datetime.now)
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)
@@ -26,4 +28,8 @@ class Released(models.Model):
     sLink = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
 
+class EmailList(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    active = models.BooleanField(default=True)
     

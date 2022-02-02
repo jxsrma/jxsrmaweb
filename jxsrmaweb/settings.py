@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,10 @@ ROOT_URLCONF = 'jxsrmaweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'client/build')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'client/build'),
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jxsrmaweb.wsgi.application'
 
-STATIC_DIR = os.path.join(BASE_DIR,'client/build/static')
+STATIC_DIR = os.path.join(BASE_DIR, 'client/build/static')
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -132,7 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR]
+STATICFILES_DIRS = [STATIC_DIR, os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -140,8 +143,16 @@ STATICFILES_DIRS = [STATIC_DIR]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'client/build/static/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
+    'http://localhost:3000'
 ]
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''

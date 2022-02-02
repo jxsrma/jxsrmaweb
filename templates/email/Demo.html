@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static 'emailCss/demo.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>E-Mail</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="email-container">
+
+            <header>
+                <div class="top-logo">
+                    <img src="{%  static 'images/logo/logo_w.png' %}" alt="JXSRMA logo">
+                </div>
+            </header>
+
+
+            <div class="heading">
+                <p class="head-p">Hey Jash! </p>
+                <h1>
+                    I just received your Demo
+                </h1>
+                <p class="tail-p">
+                    Thanks for your submittion
+                </p>
+            </div>
+
+            <footer>
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="https://instagram.com/jxsrma"><i class="fab fa-instagram" Style="margin-right: 10px"></i>Instagram</a></li>
+                        <li><a href="https://facebook.com/JXSRMA"><i class="fab fa-facebook" Style="margin-right: 10px"></i>Facebook</a></li>
+                        <li><a href="https://twitter.com/jxsrma"><i class="fab fa-twitter" Style="margin-right: 10px"></i>Twitter</a></li>
+                        <li><a href="https://discord.gg/9DkvHyYWBE"><i class="fab fa-discord" Style="margin-right: 10px"></i>Discord</a></li>
+                        <li><a href="https://www.twitch.tv/jxsrma"><i class="fab fa-twitch" Style="margin-right: 10px"></i>Twitch</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    &copy; JXSRMA
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>, LLC. All Rights Reserved
+                </div>
+            </footer>
+
+        </div>
+    </div>
+</body>
+
+</html>
