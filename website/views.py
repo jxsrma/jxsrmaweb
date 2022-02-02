@@ -1,99 +1,146 @@
 from django.shortcuts import render
 import json
 from django.http.response import HttpResponse, JsonResponse
-from .models import Demosubs, ImgGallery, Contact, Released
+from matplotlib import image
+from .models import Demosubs, EmailList, ImgGallery, Contact, Released
 from django.views.decorators.csrf import csrf_exempt
-# import pandas
+import base64
+
 
 # Create your views here.
 
+def emailSubUser(userEmail):
+    if EmailList.objects.filter(email = userEmail).exists():
+            pass
+    else:
+        emailSub = EmailList(email = userEmail)
+        emailSub.save()
 
 def index(request):
     return render(request, 'index.html')
 
 
+@csrf_exempt
 def bio(request):
-    galleryImg = ImgGallery.objects.raw(
-        'select * from website_imggallery order by rand()')
-    # for x in galleryImg:
-    #     print(x[0])
-    # galCol = galleryImg.columns
-    # for row in galleryImg:
-    #     print(galCol.__getattribute__(galCol[0]))
-    # class Tab(models.Model):
-    #     field1 = models.BooleanField()
-    #     field2 = models.PositiveIntegerField()
-    # objs = Tab.objects.raw(galleryImg)
-    # for obj in objs:
-    #     print obj.field1, obj.field2
-    # return render(request,'bio.html',{'galleryImg': galleryImg})
-    img_Dict = {"link": [], "img": []}
-    for imgs in galleryImg:
-        img_Dict['link'].append(str(imgs.link))
-        img_Dict['img'].append(str(imgs.img))
-    return JsonResponse(img_Dict)
+    if request.method == 'GET':
+        ImageData = ''
+        galleryImg = ImgGallery.objects.raw(
+            'select * from website_imggallery order by rand()')
+
+        img_list = []
+        for imgs in galleryImg:
+
+            with open('./static/images/'+str(imgs.img), 'rb') as image_file:
+                ImageData = base64.b64encode(image_file.read()).decode('utf-8')
+
+            imageLinkBase64 = {
+                'link': str(imgs.link),
+                'img': ImageData
+            }
+            img_list.append(imageLinkBase64.copy())
+        return JsonResponse({
+            "success": True,
+            "Images": img_list
+        })
 
 
 def rel(request):
-    relSongData = Released.objects.raw(
-        'select * from website_released order by id DESC ')
-    rel_Dict = {"name": [], "altImg": [],
-                "albumart": [], "sLink": [], "genre": []}
-    for rels in relSongData:
-        rel_Dict['name'].append(str(rels.name))
-        rel_Dict['altImg'].append(str(rels.altImg))
-        rel_Dict['albumart'].append(str(rels.albumart))
-        rel_Dict['sLink'].append(str(rels.sLink))
-        rel_Dict['genre'].append(str(rels.genre))
+    if request.method == 'GET':
+        albumArt = ''
+        relSongData = Released.objects.raw(
+            'select * from website_released order by id DESC ')
+        track_list = []
 
-    return JsonResponse(rel_Dict)
+        for tracks in relSongData:
+            with open('./static/images/'+str(tracks.albumart), 'rb') as image_file:
+                albumArt = base64.b64encode(image_file.read()).decode('utf-8')
+            albumArtBase64 = {
+                'name': str(tracks.name),
+                'altImg': str(tracks.altImg),
+                'albumart': albumArt,
+                'sLink': str(tracks.sLink),
+                'genre': str(tracks.genre)
+            }
+            track_list.append(albumArtBase64.copy())
+        return JsonResponse({
+            "success": True,
+            "tracks": track_list
+        })
+
 
 
 def shop(request):
-    return render(request, 'shop.html')
+    pass
 
 @csrf_exempt
 def demo(request):
     if request.method == 'POST':
         print('POST')
-        demoData = json.loads(request.body)
-        print(demoData)
-    #     artname = request.POST['artname']
-    #     email = request.POST['email']
-    #     trackname = request.POST['trackname']
-    #     trackurl = request.POST['trackurl']
-    #     infotext = request.POST['infotext']
-    #     print('success')
 
-    #     demoData = Demosubs(a_name = artname, a_email = email, t_name = trackname, t_url = trackurl, t_dis = infotext )
-    #     demoData.save()
-    #     return render(request,'demo.html')
+        demoData = json.loads(base64.b64decode(request.body).decode('utf-8'))
 
-    # else:
-    #     return render(request,'demo.html')
+        artname = demoData['artname']
+        email = demoData['email']
+        trackname = demoData['trackname']
+        trackurl = demoData['trackurl']
+        infotext = demoData['infotext']
+
+        demoData = Demosubs(a_name = artname, a_email = email, t_name = trackname, t_url = trackurl, t_dis = infotext )
+        demoData.save()
+        
+        emailSubUser(email)      
+
         return JsonResponse({
-                    "success": True,
-                })
+            "success": True,
+        })
     if request.method == 'GET':
-        print('GET')
         return JsonResponse({
-                "success": False,
-                "error": "No Data"
-            })
+            "success": False,
+            "error": "Error Occurred"
+        })
 
 
+@csrf_exempt
 def cont(request):
     if request.method == 'POST':
-        Cname = request.POST['Cname']
-        Cemail = request.POST['Memail']
-        Csubject = request.POST['Msubject']
-        Ctext = request.POST['Mconserns']
-        print('success')
+        print('POST')
+        contData = json.loads(base64.b64decode(request.body).decode('utf-8'))
+        print(contData)
+
+        Cname = contData['cName']
+        Cemail = contData['cEmail']
+        Csubject = contData['cSubject']
+        Ctext = contData['cMess']
 
         meg = Contact(name=Cname, email=Cemail,
                       subject=Csubject, message=Ctext)
         meg.save()
-        return render(request, 'contact.html')
+        
+        emailSubUser(Cemail)
+        
+        return JsonResponse({
+            "success": True,
+        })
+    if request.method == 'GET':
+        print('GET')
+        return JsonResponse({
+            "success": False,
+            "error": "No Data"
+        })
 
-    else:
-        return render(request, 'contact.html')
+
+@csrf_exempt
+def subs(request):
+    if request.method == 'POST':
+        subsEmail = json.loads(base64.b64decode(request.body).decode('utf-8'))
+        print(subsEmail)
+        return JsonResponse({
+            "success": True
+        })
+
+def email(request):
+    if request.method == 'GET':
+        return render(request, 'email/Demo.html')
+    if request.method == 'POST':
+        
+        
