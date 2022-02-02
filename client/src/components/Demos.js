@@ -11,6 +11,8 @@ export const Demos = (props) => {
     const [trackurl, setTrackURL] = useState('')
     const [infotext, setInfoText] = useState('')
 
+    // const [img, setImg] = useState('')
+
     let demoData = {
         artname,
         email,
@@ -21,36 +23,37 @@ export const Demos = (props) => {
 
     function submitDemo() {
 
-        if (demoData.artname == "") {
+        if (demoData.artname === "") {
             alert('Artist Name Field Can\'t be Empty')
 
-        } else if (demoData.email == "") {
+        } else if (demoData.email === "") {
             alert('Email Field Can\'t be Empty')
         } else if (!validator.isEmail(demoData.email)) {
             alert('Please Check Email Again')
 
-        } else if (demoData.trackname == "") {
+        } else if (demoData.trackname === "") {
             alert('Track Name Field Can\'t be Empty')
 
-        } else if (demoData.trackurl == "") {
+        } else if (demoData.trackurl === "") {
             alert('Track URL Field Can\'t be Empty')
         } else if (!validator.isURL(demoData.trackurl)) {
             alert('Please Check URL Again')
 
         } else {
-            fetch("http://127.0.0.1:8000/demo", {
+            fetch("demo/sub", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(demoData)
+                body: btoa(JSON.stringify(demoData))
 
             }).then(result => {
                 if (!result.ok) {
                     alert('Error !!Please Try Again Later')
                     console.error('Error !!Please Try Again Later')
                 } else {
+                    console.log(btoa(JSON.stringify(demoData)));
                     document.getElementById('Conf').innerHTML = 'Track is Submitted, You can submit more tracks';
                     setArtName('')
                     setEmail('')
@@ -65,21 +68,12 @@ export const Demos = (props) => {
                     return result.json()
                 }
             }).then(json => {
-                console.log(JSON.stringify(json))
+                // console.log(JSON.stringify(json))
+                // setImg("data:image/png;base64,{json.data}")
+                // setImg(json.data)
             })
         }
     }
-
-    // artname: "",
-    // email: "",
-    // trackname: "",
-    // trackurl: "",
-    // infotext: "",
-    // artname: data.artname,
-    // email: data.email,
-    // trackname: data.trackname,
-    // trackurl: data.trackurl,
-    // infotext: data.infotext
 
     return (<div style={DemosCSS}>
         <div className="maininfocontainer">
@@ -108,11 +102,10 @@ export const Demos = (props) => {
                 <textarea id='demoForm5' value={infotext} onChange={(e) => { setInfoText(e.target.value) }} type="text" name="infotext" placeholder="Enter any information related to Track. Also add your Social links" cols="30" rows="5"></textarea>
                 <br />
                 <div className="btncont">
-                    <button onClick={submitDemo} className='btn' > Data</button>
+                    <button onClick={submitDemo} className='btn' >Submit</button>
                 </div>
             </div>
             <p id='Conf' style={{ "padding-bottom": "40px", "font-size": "15px" }}></p>
-
         </div>
     </div>);
 };
