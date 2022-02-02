@@ -6,14 +6,13 @@ import { Bio } from "./Components/Bio";
 import { Releases } from "./Components/Releases";
 import { Shop } from "./Components/Shop";
 import { Demos } from "./Components/Demos";
+import { Contact } from "./Components/Contact";
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from 'react-router-dom';
-import { Contact } from "./Components/Contact";
 
 function App() {
 

@@ -6,8 +6,6 @@ import { Link, NavLink } from "react-router-dom";
 
 export const Header = (props) => {
 
-    let myStyle = props.active
-    let currLink = window.location.pathname + ""
     const [hcontainer, setNavbar] = useState(false)
     const [click, setClick ] = useState(false)
     // const [checkBox, setCheck] = useState(false)
@@ -39,11 +37,10 @@ export const Header = (props) => {
                 <nav className="navbar" >
                     <input type="checkbox" name="" id="check" />
                     <label htmlFor="check" className="checkbtn">
-                        {/* <i className="fas fa-bars"></i> */}
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} onClick={handleClick} />
                     </label>
                     <label htmlFor="logo">
-                        <Link to="/"><img src={LogoW} className="logo" /></Link>
+                        <Link to="/"><img src={LogoW} className="logo" alt='Logo' /></Link>
                     </label>
                     <ul>
                         <li><NavLink to="/" onClick={changeCheckBox}>Home</NavLink></li>

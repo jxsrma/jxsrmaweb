@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap");
 body {
-    line-height: 1.5;
-    font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* .active2::after {
@@ -15,129 +15,198 @@ body {
 } */
 
 .biocontainer {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/backg/portrait.jpg);
-    background-size: cover;
-    background-position: center;
-    object-fit: scale-down;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url(../images/backg/portrait.jpg);
+  background-size: cover;
+  background-position: center;
+  object-fit: scale-down;
 }
 
 .bioInfo {
-    color: #fff;
-    padding: 50px;
-    justify-content: left;
-    padding-top: 25vh;
+  color: #fff;
+  justify-content: left;
+  /* padding-top: 25vh; */
+  padding-left: 10vh;
+  padding-right: 10vh;
+  padding-bottom: 5vh;
+  min-height: 100vh;
 }
 
 .bioInfo h1 {
-    padding-top: 40px;
-    padding-bottom: 50px;
-    padding-left: 30px;
-    font-size: 50px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  font-size: 50px;
+}
+
+.logoBio {
+  display: block;
+}
+
+.logoBio img {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  width: 200px;
 }
 
 .bioInfo p {
-    text-indent: 50px;
-    text-align: justify;
+  text-indent: 50px;
+  text-align: justify;
+}
+.imgsContBio {
+  padding-top: 25vh;
 }
 
+.profImgCont {
+  padding-left: 70%;
+}
 .imgs {
-    width: 281px;
-    height: 281px;
-    margin-left: 70%;
-    border-radius: 250px;
-    overflow: hidden;
-    transition: .05s;
+  width: 281px;
+  height: 281px;
+  /* margin-left: 70%; */
+  border-radius: 250px;
+  overflow: hidden;
+  transition: 0.05s;
+  /* padding-top: 25vh; */
+  transition: 1s;
+}
+
+.gallery-cont {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url(../images/backg/footpathBG.jpg);
+  background-size: cover;
+  background-position: center;
+  object-fit: scale-down;
 }
 
 .gallery {
-    padding: 2px;
-    transition: 0.3s;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/backg/footpathBG.jpg);
-    background-size: cover;
-    object-fit: scale-down;
+  transition: 0.3s;
+  min-height: 30vh;
+  z-index: 10;
 }
 
 .gallery:hover .gallery__image {
-    filter: grayscale(1) blur(2px);
+  filter: grayscale(1) blur(2px);
 }
 
 .gallery__column {
-    column-count: 4;
-    max-width: 100%;
-    column-gap: 0;
-    column-rule-width: 40px;
+  column-count: 4;
+  max-width: 100%;
+  column-gap: 0;
+  column-rule-width: 40px;
+}
+.LoaderBio {
+  width: 200vh;
+  min-height: 20vh;
 }
 
 .gallery__link {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .gallery__link:hover .gallery__image {
-    filter: grayscale(0) blur(0);
+  filter: grayscale(0) blur(0);
 }
 
 .gallery__link:hover .gallery__caption {
-    opacity: 1;
+  opacity: 1;
 }
 
 .gallery__thumb {
-    position: relative;
-    overflow: hidden;
-    display: block;
+  position: relative;
+  overflow: hidden;
+  display: block;
 }
 
 .gallery__image {
-    display: block;
-    width: 100%;
-    transition: 0.3s, 1s transform ease-in-out;
-    overflow: hidden;
+  display: block;
+  width: 100%;
+  transition: 0.3s, 1s transform ease-in-out;
+  overflow: hidden;
 }
 
 .gallery__image:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .gallery__caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 25px 15px 15px;
-    width: 100%;
-    font-size: 12px;
-    color: white;
-    opacity: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255, 255, 0) 100%);
-    transition: 0.3s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 25px 15px 15px;
+  width: 100%;
+  font-size: 12px;
+  color: white;
+  opacity: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: 0.3s;
 }
 
 @media (max-width: 950px) {
-    .imgs {
-        margin-left: auto;
-        margin-right: auto;
-        transition: .05s;
-    }
-    .bioInfo h1 {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        padding-left: 0px;
-    }
-    .active2::after {
-        width: 250px;
-    }
-    .gallery__column {
-        column-count: 3;
-    }
+  .profImgCont {
+    display: flex;
+
+    padding-left: 0px;
+    justify-content: center;
+  }
+  .imgs {
+    /* margin-left: 0%; */
+    /* margin-right: auto; */
+    transition: 0.05s;
+  }
+  .logoBio {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+  }
+  .logoBio img {
+    padding-top: 40px;
+    padding-bottom: 50px;
+    padding-left: 0px;
+    width: 200px;
+  }
+  .active2::after {
+    width: 250px;
+  }
+  .gallery__column {
+    column-count: 3;
+  }
 }
 
 @media (max-width: 700px) {
-    .gallery__column {
-        column-count: 2;
-    }
+  .gallery__column {
+    column-count: 2;
+  }
+  .bioInfo {
+    padding-left: 5vh;
+    padding-right: 5vh;
+  }
 }
 
 @media (max-width: 450px) {
-    .gallery__column {
-        column-count: 1;
-    }
+  .profImgCont {
+    justify-content: center;
+  }
+  .gallery__column {
+    column-count: 1;
+  }
+  .imgs {
+    width: 200px;
+    height: 200px;
+    border-radius: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .imgs img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 200px;
+  }
 }

@@ -2,6 +2,7 @@
 body {
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
+    background-color: black;
 }
 
 /* .active1::after {
@@ -51,6 +52,18 @@ body {
     padding-left: 5%;
     width: 90%;
     height: 100vh;
+}
+
+.YT {
+    padding: 2%;
+}
+.YT iframe{
+    display: block;
+    
+    object-fit: scale-down;
+    max-height: 720px !important;
+    max-width: 100% !important;
+
 }
 
 @media (max-width: 950px) {

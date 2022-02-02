@@ -31,12 +31,12 @@ body {
 .contactus h1 {
   padding-top: 100px;
   text-align: center;
-  font-size: 70px;
+  font-size: 60px;
   color: white;
 }
 
 .contactus p {
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 50px;
   font-size: 25px;
   text-align: center;
@@ -44,52 +44,81 @@ body {
 }
 
 .contform {
-  padding: 50px;
+  padding-top: 5%;
+  padding-left: 10%;
   background-image: linear-gradient(
     to bottom right,
     rgb(255, 255, 255),
     rgb(185, 185, 185)
   );
 }
-.info label{
-    font-size: 20px;
+.info label {
+  font-size: 20px;
 }
-.subject label{
-    font-size: 20px;
+.subject label {
+  font-size: 20px;
 }
-.message label{
-    font-size: 20px;
+.message label {
+  font-size: 20px;
 }
 .contform .info {
-  font-size: 30px;
   color: #000;
   padding-bottom: 50px;
 }
 
 .contform .info input {
-  width: 30%;
+  width: 20%;
   height: 30px;
+  padding-left: 1%;
+  margin-right: 5%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  transition: 500ms;
+}
+
+.contform .info input:focus {
+  outline: none;
+  border-color: black;
 }
 
 .subject {
-  font-size: 30px;
   color: black;
 }
 
 .subject input {
-  width: 30%;
+  width: 45.5%;
   height: 30px;
+  padding-left: 1%;
+  margin-right: 5%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  transition: 500ms;
+}
+
+.subject input:focus {
+  outline: none;
+  border-color: black;
 }
 
 .message {
   padding-top: 50px;
-  font-size: 30px;
   color: black;
 }
 
 .message textarea {
-  height: 100px;
-  width: 60%;
+  height: 5%;
+  width: 45%;
+  padding: 1%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  transition: 500ms;
+}
+.message textarea:focus {
+  outline: none;
+  border-color: black;
 }
 
 .btncont {
@@ -108,4 +137,13 @@ body {
 
   color: white;
   background-color: black;
+  transition: 500ms;
+}
+.contform .btn:hover{
+  transform: translateY(-.20rem);
+}
+.contform .btn:active{
+  transform: translateY(+.10rem);
+  background-color: rgb(150, 150, 150);
+  color: #000;
 }

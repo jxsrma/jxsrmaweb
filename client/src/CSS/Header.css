@@ -28,7 +28,8 @@
     background-position: center;
     left: 0%;
     object-fit: scale-down;
-    transition: 250ms;
+    z-index: 1000;
+    transition: 300ms ease-out;
 }
 
 
@@ -47,6 +48,7 @@
 }
 
 .logo {
+    padding-top: 10px;
     width: 100px;
     cursor: pointer;
 }
@@ -94,6 +96,7 @@
     display: none;
 }
 
+
 a:hover,
 a:active  {
     background: none;
@@ -119,6 +122,9 @@ a:active  {
 }
 
 @media (max-width: 950px) {
+    .navbar{
+        height: 20px;
+    }
     .active::after {
 
         content: '';
@@ -137,7 +143,7 @@ a:active  {
     .navbar ul {
         position: fixed;
         width: 50%;
-        height: 100vh;
+        height: 100%;
         padding-top: 100px;
         background: rgb(0, 0, 0);
         top: 0px;
@@ -151,10 +157,12 @@ a:active  {
         margin: 50px 0;
         line-height: 30px;
         padding-left: 20%;
+        transition: 1s;
     }
     .navbar ul li a {
         font-size: 20px;
     }
+
     .navbar a:hover,
     .navbar a:active{
         background: none;
@@ -168,4 +176,27 @@ a:active  {
         width: 250px;
         justify-content: center;
     }
+    @media (max-height: 600px) {
+        .navbar ul{
+            padding-top: 30px;
+        }
+    }
+    @media (max-height: 525px) {
+        .navbar ul li{
+            margin: 15px 0px;
+            padding-left: 20%;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+
+    .navbar ul li{
+        padding-left: 10%;
+    }
+    .navbar ul li a {
+        font-size: 15px;
+    }
+    
+
 }
