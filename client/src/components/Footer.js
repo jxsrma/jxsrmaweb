@@ -42,6 +42,7 @@ export const Footer = () => {
                         <h4>Follow</h4>
                         <ul>
                             <li><a href="https://instagram.com/jxsrma"><i class="fab fa-instagram" Style="margin-right: 10px"></i>Instagram</a></li>
+                            <li><a href="https://www.youtube.com/channel/UC_lMuUU9UkJNM0_KP6Hl2vg"><i class="fab fa-youtube" Style="margin-right: 10px"></i>YouTube</a></li>
                             <li><a href="https://facebook.com/JXSRMA"><i class="fab fa-facebook" Style="margin-right: 10px"></i>Facebook</a></li>
                             <li><a href="https://twitter.com/jxsrma"><i class="fab fa-twitter" Style="margin-right: 10px"></i>Twitter</a></li>
                             <li><a href="https://discord.gg/9DkvHyYWBE"><i class="fab fa-discord" Style="margin-right: 10px"></i>Discord</a></li>
