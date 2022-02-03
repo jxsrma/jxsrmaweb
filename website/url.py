@@ -11,6 +11,5 @@ urlpatterns = [
     path('demo/sub', views.demo,name='demo'),
     path('cont/send', views.cont,name='cont'),
     path('subs/email', views.subs,name='subs'),
-    path('email', views.email,name='email'),
 
 ]

@@ -1,20 +1,28 @@
-from django.shortcuts import render
+import base64
 import json
-from django.http.response import HttpResponse, JsonResponse
-from matplotlib import image
+from django.conf import settings
+from django.shortcuts import render
+from django.http.response import JsonResponse
 from .models import Demosubs, EmailList, ImgGallery, Contact, Released
 from django.views.decorators.csrf import csrf_exempt
-import base64
+
+from email.message import EmailMessage
+from django.template.loader import get_template
+
+from django.core.mail import EmailMessage
+from django.template import Context
+from django.template.loader import get_template
 
 
 # Create your views here.
 
-def emailSubUser(userEmail):
-    if EmailList.objects.filter(email = userEmail).exists():
-            pass
+def emailSubUser(name,userEmail):
+    if EmailList.objects.filter(email=userEmail).exists():
+        pass
     else:
-        emailSub = EmailList(email = userEmail)
+        emailSub = EmailList(name = name, email = userEmail)
         emailSub.save()
+
 
 def index(request):
     return render(request, 'index.html')
@@ -68,14 +76,13 @@ def rel(request):
         })
 
 
-
 def shop(request):
     pass
+
 
 @csrf_exempt
 def demo(request):
     if request.method == 'POST':
-        print('POST')
 
         demoData = json.loads(base64.b64decode(request.body).decode('utf-8'))
 
@@ -85,10 +92,24 @@ def demo(request):
         trackurl = demoData['trackurl']
         infotext = demoData['infotext']
 
-        demoData = Demosubs(a_name = artname, a_email = email, t_name = trackname, t_url = trackurl, t_dis = infotext )
+        demoData = Demosubs(a_name=artname, a_email=email,
+                            t_name=trackname, t_url=trackurl, t_dis=infotext)
         demoData.save()
+
+        emailSubUser(artname,email)
         
-        emailSubUser(email)      
+        message = get_template("email/Demo.html").render({'name': artname})
+        mail = EmailMessage(
+            subject="Submission confirmation",
+            body=message,
+            from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+            to=[email],
+            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+        )
+        
+        mail.content_subtype = "html"
+        mail.send()
+        print('Mail Sent')
 
         return JsonResponse({
             "success": True,
@@ -103,9 +124,7 @@ def demo(request):
 @csrf_exempt
 def cont(request):
     if request.method == 'POST':
-        print('POST')
         contData = json.loads(base64.b64decode(request.body).decode('utf-8'))
-        print(contData)
 
         Cname = contData['cName']
         Cemail = contData['cEmail']
@@ -115,9 +134,22 @@ def cont(request):
         meg = Contact(name=Cname, email=Cemail,
                       subject=Csubject, message=Ctext)
         meg.save()
+
+        emailSubUser(Cname,Cemail)
         
-        emailSubUser(Cemail)
+        message = get_template("email/contactus.html").render({'name': Cname})
+        mail = EmailMessage(
+            subject="Query Confirmation",
+            body=message,
+            from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+            to=[Cemail],
+            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+        )
         
+        mail.content_subtype = "html"
+        mail.send()
+        print('Mail Sent')
+
         return JsonResponse({
             "success": True,
         })
@@ -128,7 +160,6 @@ def cont(request):
             "error": "No Data"
         })
 
-
 @csrf_exempt
 def subs(request):
     if request.method == 'POST':
@@ -137,10 +168,3 @@ def subs(request):
         return JsonResponse({
             "success": True
         })
-
-def email(request):
-    if request.method == 'GET':
-        return render(request, 'email/Demo.html')
-    if request.method == 'POST':
-        
-        
