@@ -16,17 +16,79 @@ from django.template.loader import get_template
 
 # Create your views here.
 
-def emailSubUser(name,userEmail):
+@csrf_exempt
+def sendMail(request):
+    if request.method == 'POST':
+        emailData = json.loads(base64.b64decode(request.body).decode('utf-8'))
+
+        userName = emailData['name']
+        userEmail = emailData['email']
+        serviceType = emailData['type']
+                
+        if serviceType == 'demo':
+            message = get_template("email/Demo.html").render({'name': userName})
+            mail = EmailMessage(
+                subject="Demo Submission Confirmation",
+                body=message,
+                from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+                to=[userEmail],
+                reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+            )
+            mail.content_subtype = "html"
+            mail.send()
+        elif serviceType == 'contact':
+            message = get_template("email/contactus.html").render({'name': userName})
+            mail = EmailMessage(
+                subject="Query Submission Confirmation",
+                body=message,
+                from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+                to=[userEmail],
+                reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+            )
+
+            mail.content_subtype = "html"
+            mail.send()
+
+        emailFunc(userName, userEmail)
+        
+        return JsonResponse({
+            "success": True,
+        })
+
+def emailFunc(userName, userEmail):
     if EmailList.objects.filter(email=userEmail).exists():
-        pass
+            activeCheck = EmailList.objects.get(email=userEmail)
+            if activeCheck.active == False:
+                activeCheck.active = True
+                activeCheck.name = userName
+                activeCheck.save()
+                return {
+                "success": False,
+                }
+            else:
+                return {
+                "success": False,
+                }
     else:
-        emailSub = EmailList(name = name, email = userEmail)
+        emailSub = EmailList(name=userName, email=userEmail)
         emailSub.save()
+        return {
+            "success": True,
+            }
+
+@csrf_exempt
+def emailSubUser(request):
+    if request.method == 'POST':
+        subsData = json.loads(base64.b64decode(request.body).decode('utf-8'))
+        
+        userName = subsData['name']
+        userEmail = subsData['email']
+            
+        return JsonResponse(emailFunc(userName, userEmail))
 
 
 def index(request):
     return render(request, 'index.html')
-
 
 @csrf_exempt
 def bio(request):
@@ -51,7 +113,6 @@ def bio(request):
             "Images": img_list
         })
 
-
 def rel(request):
     if request.method == 'GET':
         albumArt = ''
@@ -75,51 +136,37 @@ def rel(request):
             "tracks": track_list
         })
 
-
 def shop(request):
     pass
-
 
 @csrf_exempt
 def demo(request):
     if request.method == 'POST':
 
-        demoData = json.loads(base64.b64decode(request.body).decode('utf-8'))
+        demoData = json.loads(base64.b64decode(
+            request.body).decode('utf-8'))
 
         artname = demoData['artname']
         email = demoData['email']
         trackname = demoData['trackname']
         trackurl = demoData['trackurl']
         infotext = demoData['infotext']
-
         demoData = Demosubs(a_name=artname, a_email=email,
                             t_name=trackname, t_url=trackurl, t_dis=infotext)
         demoData.save()
 
-        emailSubUser(artname,email)
-        
-        message = get_template("email/Demo.html").render({'name': artname})
-        mail = EmailMessage(
-            subject="Submission confirmation",
-            body=message,
-            from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
-            to=[email],
-            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
-        )
-        
-        mail.content_subtype = "html"
-        mail.send()
-        print('Mail Sent')
-
         return JsonResponse({
-            "success": True,
-        })
+                "success": True,
+                "type" : "demo",
+                "name" : artname,
+                "email": email
+            })
+        
     if request.method == 'GET':
         return JsonResponse({
             "success": False,
             "error": "Error Occurred"
         })
-
 
 @csrf_exempt
 def cont(request):
@@ -135,26 +182,13 @@ def cont(request):
                       subject=Csubject, message=Ctext)
         meg.save()
 
-        emailSubUser(Cname,Cemail)
-        
-        message = get_template("email/contactus.html").render({'name': Cname})
-        mail = EmailMessage(
-            subject="Query Confirmation",
-            body=message,
-            from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
-            to=[Cemail],
-            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
-        )
-        
-        mail.content_subtype = "html"
-        mail.send()
-        print('Mail Sent')
-
         return JsonResponse({
-            "success": True,
-        })
+                "success": True,
+                "type" : "contact",
+                "name" : Cname,
+                "email": Cemail
+            })
     if request.method == 'GET':
-        print('GET')
         return JsonResponse({
             "success": False,
             "error": "No Data"
@@ -164,7 +198,12 @@ def cont(request):
 def subs(request):
     if request.method == 'POST':
         subsEmail = json.loads(base64.b64decode(request.body).decode('utf-8'))
-        print(subsEmail)
-        return JsonResponse({
-            "success": True
-        })
+        if emailSubUser(subsEmail['name'], subsEmail['email']):
+            return JsonResponse({
+                "success": True
+            })
+        else:
+            return JsonResponse({
+                "success": False,
+                "msg": "Already Subscribed"
+            })

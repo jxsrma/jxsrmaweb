@@ -40,7 +40,7 @@ export const Demos = (props) => {
             alert('Please Check URL Again')
 
         } else {
-            fetch("demo/sub", {
+            fetch("demo/send", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -68,9 +68,14 @@ export const Demos = (props) => {
                     return result.json()
                 }
             }).then(json => {
-                // console.log(JSON.stringify(json))
-                // setImg("data:image/png;base64,{json.data}")
-                // setImg(json.data)
+                fetch("sevice/email", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: btoa(JSON.stringify(json))
+                })
             })
         }
     }

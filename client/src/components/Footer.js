@@ -5,31 +5,48 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
 
+    const [Name, setName] = useState('')
     const [Email, setEmail] = useState('')
 
     function subscribe() {
         if (Email === '') {
-            alert('Please Enter Email First')
+            alert('Please Enter Email')
         } else if (!validator.isEmail(Email)) {
             alert('Please Check Email Again')
+        } else if (Name === '') {
+            alert('Please Enter Name')
         } else {
-            fetch("subs/email", {
+
+            let emailData = {
+                "name" : Name,
+                "email" : Email,
+                "type" : "subs"
+            }
+
+            fetch("sevice/subs", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: btoa(JSON.stringify(Email))
+                body: btoa(JSON.stringify(emailData))
             }).then(result => {
                 if (!result.ok) {
                     alert('Error !!Please Try Again Later')
                 } else {
+                    setName('')
                     setEmail('')
+                    document.getElementById('nameFooter').value = ''
                     document.getElementById('emailFooter').value = ''
                 }
                 return result.json()
             }).then(json => {
-                alert(JSON.stringify(json))
+                console.log(json.success);
+                if(json.success){
+                    alert('Subcribed')
+                } else {
+                    alert('Already Subcribed')
+                }
             })
         }
     }
@@ -54,16 +71,16 @@ export const Footer = () => {
                         <ul>
                             <li><a href="https://open.spotify.com/artist/76RdxImQYMELfBJ99W7QsE"><i class="fab fa-spotify" Style="margin-right: 10px"></i>Spotify</a></li>
                             <li><a href="https://soundcloud.com/jxsrma"><i class="fab fa-soundcloud" Style="margin-right: 10px"></i>SoundCloud</a></li>
-                            <li><a href="https://www.jiosaavn.com/artist/jxsrma-/1,rCDiL19uk_"><img className='jiosaavan' src='https://www.jiosaavn.com/favicon.ico' Style="margin-right: 10px" />JioSaavan</a></li>
                             <li><a href="https://music.amazon.in/artists/B08PNSQ44V/jxsrma"><i class="fab fa-amazon" Style="margin-right: 10px"></i>Amazon</a></li>
                             <li><a href="https://music.apple.com/in/artist/jxsrma/1542925618"><i class="fab fa-apple" Style="margin-right: 10px"></i>Apple</a></li>
+                            <li><a href="https://songwhip.com/jxsrma"><i class="fas fa-headphones" Style="margin-right: 10px"></i>JioSaavan & more</a></li>
                         </ul>
                     </div>
                     <div className="footer-col">
                         <h4>Info</h4>
                         <ul>
                             <li><Link to="/contact"><i class="fas fa-headset" Style="margin-right: 10px"></i>Contact Us</Link></li>
-                            <li><a href="https://www.linkedin.com/in/jash-sharma-607940182/"><i class="fas fa-code" Style="margin-right: 10px"></i>About Developers</a></li>
+                            <li><a href="https://www.linkedin.com/in/jash-sharma-607940182/"><i class="fas fa-code" Style="margin-right: 10px"></i>About Developer</a></li>
                             <li><a href="https://github.com/Hacker00619/jxsrmaweb"><i class="fab fa-github" Style="margin-right: 10px"></i>Github Repo</a></li>
 
                         </ul>
@@ -74,7 +91,8 @@ export const Footer = () => {
             </div>
             <div className='subscribe'>
                 <p>Subscribe to my News Letter</p>
-                    <input id='emailFooter' type='email' value={Email} onChange={(e) => { setEmail(e.target.value) }} className='input-email' placeholder='Enter Your Email' />
+                    <input id='nameFooter' type='text' value={Name} onChange={(e) => { setName(e.target.value) }} className='input-name' placeholder='Enter Your Name' /><br/>
+                    <input id='emailFooter' type='email' value={Email} onChange={(e) => { setEmail(e.target.value) }} className='input-email' placeholder='Enter Your Email' /><br/>
                     <button onClick={subscribe} className='button-email'>Subscribe</button>
             </div>
 

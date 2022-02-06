@@ -30,8 +30,8 @@ body {
 }
 
 .home h1 {
-    padding-top: 45vh;
-    padding-bottom: 45vh;
+    padding-top: 60vh;
+    padding-bottom: 30vh;
     text-align: center;
     font-size: 70px;
     color: white;
@@ -56,15 +56,18 @@ body {
 
 .YT {
     padding: 2%;
+    display: flex;
+    justify-content: center;
 }
 .YT iframe{
     display: block;
-    
+    padding-left: 0;
     object-fit: scale-down;
-    max-height: 720px !important;
-    max-width: 100% !important;
+    max-height: 480px !important;
+    max-width: 854px !important;
 
 }
+
 
 @media (max-width: 950px) {
     .home h1 {
