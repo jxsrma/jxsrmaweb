@@ -55,7 +55,14 @@ export const Contact = (props) => {
                     return result.json()
                 }
             }).then(json => {
-                console.log(JSON.stringify(json))
+                fetch("sevice/email", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: btoa(JSON.stringify(json))
+                })
             })
         }
     }

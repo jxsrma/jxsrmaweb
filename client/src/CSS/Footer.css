@@ -10,23 +10,22 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .footer-col ul {
   list-style: none;
-  
 }
 
 .footer {
   background-color: #1c1c1c;
   padding-top: 60px;
-
+  transition: 1s;
 }
 
 .footer-col {
   width: 25%;
   padding: 0 20px;
+  transition: 1s;
 }
 
 .footer-col h4 {
@@ -35,13 +34,12 @@ body {
   text-transform: capitalize;
   margin-bottom: 15px;
   font-weight: 500;
-
 }
 
 .footer-col ul li {
-    font-size: 15px;
-    margin-top: 5px;
-  }
+  font-size: 15px;
+  margin-top: 5px;
+}
 
 .footer-col ul li a {
   text-decoration: none;
@@ -54,19 +52,21 @@ body {
   color: #fff;
 }
 
-.subscribe p{
-  transform: translateY(20px);
-  font-size: 15px;
-  margin-left: 70%;
-  color: #959595;
-  transition: 1s;
 
+
+.subscribe p {
+  transform: translateY(-200px);
+  font-size: 15px;
+  margin-left: 73%;
+  color: #ffffff;
+  transition: 1s;
 }
 
-.input-email {
-  margin-right: 20px;
-  margin-left: 70%;
-  margin-top: 10px;
+.input-name {
+  transform: translateY(-180px);
+  /* margin-right: 20px; */
+  margin-left: 73%;
+  /* margin-top: 10px; */
   padding: 5px;
   border-top: 0px;
   border-right: 0px;
@@ -75,34 +75,55 @@ body {
   background-color: black;
   transition: 1s;
 }
+
+.input-email {
+  transform: translateY(-170px);
+  /* margin-right: 20px; */
+  margin-left: 73%;
+  /* margin-top: 10px; */
+  padding: 5px;
+  border-top: 0px;
+  border-right: 0px;
+  color: white;
+  border-left: 0px;
+  background-color: black;
+  transition: 1s;
+}
+
+.input-name:focus {
+  outline-style: none;
+}
+.input-name:hover {
+  border-color: #fff;
+}
+
 .input-email:focus {
   outline-style: none;
 }
-.input-email:hover{
-border-color: #fff;
+.input-email:hover {
+  border-color: #fff;
 }
 
 .button-email {
+  transform: translateY(-190px);
   border: 0px;
+  margin-left: 73%;
   padding: 5px;
   border-radius: 3.5px;
   border: 1px;
-  color: white;
+  color: #959595;
   background-color: black;
-  transition: 500ms;
+  transition: 1s;
   margin-top: 30px;
   margin-bottom: 70px;
-
 }
 
 .button-email:hover {
-  transform: translateY(-0.2rem);
+  color: white;
 }
 .button-email:active {
-  transform: translateY(+0.1rem);
   background-color: rgb(150, 150, 150);
   color: #000;
-  
 }
 
 .CopyrightFooter {
@@ -114,56 +135,69 @@ border-color: #fff;
   color: #c1c1c1;
   background-color: black;
 }
-.jiosaavan{
-    /* max-height: 20px; */
-    filter: grayscale(100%);
-    border-radius: 2px;
+
+@media (max-width: 1400px) {
+  .subscribe p {
+    margin-left: 73%;
+  }
+  .input-name {
+    margin-left: 73%;
+  }
+  .input-email {
+    margin-left: 73%;
+  }
+  .button-email {
+    margin-left: 73%;
+  }
+}
+@media (max-width: 1200px) {
+  .subscribe p {
+    margin-left: 80%;
+  }
+  .input-name {
+    margin-left: 80%;
+  }
+  .input-email {
+    margin-left: 80%;
+  }
+  .button-email {
+    margin-left: 80%;
+  }
 }
 
-@media (max-width: 950px){
-  .subscribe p{
-    margin-left: 50%;
+@media (max-width: 900px) {
+  .subscribe p {
+    margin-left: 5%;
+    transform: translateY(30px);
   }
-  
-.input-email{
-  margin-left: 50%;
+  .input-name {
+    margin-left: 5%;
+    transform: translateY(35px);
+  }
+  .input-email {
+    margin-left: 35%;
+    transform: translateY(3px);
+  }
+  .button-email {
+    margin-left: 65%;
+    transform: translateY(-58px);
+  }
 }
-}
-
-@media (max-width: 700px) {
-  .subscribe p{
-    margin-left: 25%;
+@media (max-width: 600px) {
+  .subscribe p {
+    margin-left: 5%;
+    transform: translateY(30px);
   }
-.input-email{
-  margin-left: 25%;
-}
-  
-}
-@media (max-width: 550px) {
-  .subscribe p{
-    margin-left: 10%;
+  .input-name {
+    margin-left: 5%;
+    transform: translateY(35px);
   }
-
-  .input-email{
-    margin-left: 10%;
+  .input-email {
+    margin-left: 5%;
+    transform: translateY(40px);
   }
-  .footer-col ul li a {
-    font-size: 10px;
-  }
-  .jiosaavan{
-    max-height: 10px;
-  }
-  
-}
-
-
-@media (max-width: 300px) {
-
-  .subscribe p{
-    margin-left: 5px;
-  }
-
-  .input-email{
-    margin-left: 5px;
+  .button-email {
+    margin-left: 5%;
+    transform: translateY(15px);
   }
 }
