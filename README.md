@@ -25,7 +25,7 @@ This website is an Artist Profile Website.
 <br>
 <br>
 <center>
-<table>
+<table style="border : 0;">
 <tr>
 
 <td>
