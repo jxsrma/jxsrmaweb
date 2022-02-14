@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+<center>
+<a href = 'https://jxsrma.herokuapp.com'>
+<img src="https://i.ibb.co/Rztmh4g/JXSRMA.png" alt="drawing" width="300"/>
+</a>
+</center>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+# JXSRMA Offical Website
 
-In the project directory, you can run:
+This website is an Artist Profile Website.
 
-### `npm start`
+## Languages & Framework
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js
+- Django
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- User can send Demo & Query direct to admin.
+- After submittion, User will get a confirmation Email.
+- Admin can upload Images and released cover art via Django Admin Pannel.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<br>
+<br>
+<center>
+<table>
+<tr>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<td>
+<a href = 'https://jxsrma.openinapp.co/youtube/11fe3'>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png" alt="Youtube" width="30"/>
+</a>
+</td>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<td>
+<a href = 'https://jxsrma.openinapp.co/instagram/jxsrma'>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram" width="25"/>
+</a>
+</td>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<td>
+<a href = 'https://jxsrma.openinapp.co/facebook/c0972'>
+<img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" alt="Facebook Page" width="25"/>
+</a>
+</td>
 
-### `npm run eject`
+<td>
+<a href = 'https://jxsrma.openinapp.co/twitter/jxsrma'>
+<img src="https://1000logos.net/wp-content/uploads/2021/04/Twitter-logo.png" alt="Twitter" width="30"/>
+</a>
+</td>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<td>
+<a href = 'https://www.linkedin.com/in/jashsharma/'>
+<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Linkedin" width="25"/>
+</a>
+</td>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</tr>
+</table>
+</center>
