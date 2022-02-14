@@ -31,7 +31,7 @@ DEBUG = str(os.environ.get('DEBUG')) == '1'
 ALLOWED_HOSTS = []
 
 if not DEBUG:
-    ALLOWED_HOSTS+= [os.environ.get('ALLOWED_HOSTS')]
+    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOSTS')]
 
 # Application definition
 
@@ -65,8 +65,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'client/build'),
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'build'),
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'assets/static'),
+            os.path.join(BASE_DIR, 'assets'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
