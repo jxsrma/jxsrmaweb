@@ -97,7 +97,7 @@ def bio(request):
     if request.method == 'GET':
         ImageData = ''
         galleryImg = ImgGallery.objects.raw(
-            'select * from website_imggallery order by rand()')
+            'select * from website_imggallery order by random()')
 
         img_list = []
         for imgs in galleryImg:
