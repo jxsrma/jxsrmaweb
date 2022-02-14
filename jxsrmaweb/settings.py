@@ -67,6 +67,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'build'),
             os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'static'),
             os.path.join(BASE_DIR, 'assets/static'),
             os.path.join(BASE_DIR, 'assets'),
         ],
