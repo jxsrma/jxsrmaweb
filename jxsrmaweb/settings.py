@@ -81,7 +81,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jxsrmaweb.wsgi.application'
 
-STATIC_DIR = os.path.join(BASE_DIR, 'client/build/static')
+STATIC_DIR = os.path.join(BASE_DIR, 'build/static')
+STATICFILES_STORAGE = 'whitenoise.django.GzipMainufestStaticFilesStorage'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

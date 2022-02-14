@@ -68,14 +68,7 @@ export const Demos = (props) => {
                     return result.json()
                 }
             }).then(json => {
-                fetch("sevice/email", {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: btoa(JSON.stringify(json))
-                })
+              alert(JSON.stringify(json))
             })
         }
     }

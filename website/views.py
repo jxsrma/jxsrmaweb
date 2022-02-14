@@ -1,5 +1,9 @@
 import base64
 import json
+
+import threading
+import time
+
 from django.conf import settings
 from django.shortcuts import render
 from django.http.response import JsonResponse
@@ -17,78 +21,76 @@ from django.template.loader import get_template
 # Create your views here.
 
 @csrf_exempt
-def sendMail(request):
-    if request.method == 'POST':
-        emailData = json.loads(base64.b64decode(request.body).decode('utf-8'))
+def sendMail(emailData):
+    time.sleep(5)
+    userName = emailData['name']
+    userEmail = emailData['email']
+    serviceType = emailData['type']
 
-        userName = emailData['name']
-        userEmail = emailData['email']
-        serviceType = emailData['type']
-                
-        if serviceType == 'demo':
-            message = get_template("email/Demo.html").render({'name': userName})
-            mail = EmailMessage(
-                subject="Demo Submission Confirmation",
-                body=message,
-                from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
-                to=[userEmail],
-                reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
-            )
-            mail.content_subtype = "html"
-            mail.send()
-        elif serviceType == 'contact':
-            message = get_template("email/contactus.html").render({'name': userName})
-            mail = EmailMessage(
-                subject="Query Submission Confirmation",
-                body=message,
-                from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
-                to=[userEmail],
-                reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
-            )
+    if serviceType == 'demo':
+        message = get_template("email/Demo.html").render({'name': userName})
+        mail = EmailMessage(
+            subject="Demo Submission Confirmation",
+            body=message,
+            from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+            to=[userEmail],
+            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+        )
+        mail.content_subtype = "html"
+        mail.send()
+    elif serviceType == 'contact':
+        message = get_template(
+            "email/contactus.html").render({'name': userName})
+        mail = EmailMessage(
+            subject="Query Submission Confirmation",
+            body=message,
+            from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+            to=[userEmail],
+            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+        )
 
-            mail.content_subtype = "html"
-            mail.send()
+        mail.content_subtype = "html"
+        mail.send()
 
-        emailFunc(userName, userEmail)
-        
-        return JsonResponse({
-            "success": True,
-        })
+    emailFunc(userName, userEmail)
+
 
 def emailFunc(userName, userEmail):
     if EmailList.objects.filter(email=userEmail).exists():
-            activeCheck = EmailList.objects.get(email=userEmail)
-            if activeCheck.active == False:
-                activeCheck.active = True
-                activeCheck.name = userName
-                activeCheck.save()
-                return {
+        activeCheck = EmailList.objects.get(email=userEmail)
+        if activeCheck.active == False:
+            activeCheck.active = True
+            activeCheck.name = userName
+            activeCheck.save()
+            return {
                 "success": False,
-                }
-            else:
-                return {
+            }
+        else:
+            return {
                 "success": False,
-                }
+            }
     else:
         emailSub = EmailList(name=userName, email=userEmail)
         emailSub.save()
         return {
             "success": True,
-            }
+        }
+
 
 @csrf_exempt
 def emailSubUser(request):
     if request.method == 'POST':
         subsData = json.loads(base64.b64decode(request.body).decode('utf-8'))
-        
+
         userName = subsData['name']
         userEmail = subsData['email']
-            
+
         return JsonResponse(emailFunc(userName, userEmail))
 
 
 def index(request):
     return render(request, 'index.html')
+
 
 @csrf_exempt
 def bio(request):
@@ -113,6 +115,7 @@ def bio(request):
             "Images": img_list
         })
 
+
 def rel(request):
     if request.method == 'GET':
         albumArt = ''
@@ -136,8 +139,10 @@ def rel(request):
             "tracks": track_list
         })
 
+
 def shop(request):
     pass
+
 
 @csrf_exempt
 def demo(request):
@@ -154,19 +159,23 @@ def demo(request):
         demoData = Demosubs(a_name=artname, a_email=email,
                             t_name=trackname, t_url=trackurl, t_dis=infotext)
         demoData.save()
-
+        emailData = {
+            "success": True,
+            "type": "demo",
+            "name": artname,
+            "email": email
+        }
+        mailThread = threading.Thread(target=sendMail,args=(emailData,))
+        mailThread.start()
         return JsonResponse({
-                "success": True,
-                "type" : "demo",
-                "name" : artname,
-                "email": email
-            })
-        
+            "success": True,
+        })
     if request.method == 'GET':
         return JsonResponse({
             "success": False,
             "error": "Error Occurred"
         })
+
 
 @csrf_exempt
 def cont(request):
@@ -182,17 +191,24 @@ def cont(request):
                       subject=Csubject, message=Ctext)
         meg.save()
 
+        emailData = {
+            "success": True,
+            "type": "contact",
+            "name": Cname,
+            "email": Cemail
+        }
+        mailThread = threading.Thread(target=sendMail,args=(emailData,))
+        mailThread.start()
+        
         return JsonResponse({
-                "success": True,
-                "type" : "contact",
-                "name" : Cname,
-                "email": Cemail
-            })
+            "success": True,
+        })
     if request.method == 'GET':
         return JsonResponse({
             "success": False,
             "error": "No Data"
         })
+
 
 @csrf_exempt
 def subs(request):
