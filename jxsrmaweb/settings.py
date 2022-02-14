@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,7 +83,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'jxsrmaweb.wsgi.application'
 
 STATIC_DIR = os.path.join(BASE_DIR, 'build/static')
-STATICFILES_STORAGE = 'whitenoise.django.GzipMainufestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Database
