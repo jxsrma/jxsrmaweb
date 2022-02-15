@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import django_heroku
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -156,11 +155,13 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://jxsrma.herokuapp.com'
 ]
 
 MAIN_EMAIL = str(os.environ.get('MAIN_EMAIL'))
 MAIN_EMAIL_PASSWORD = str(os.environ.get('MAIN_EMAIL_PASSWORD'))
+SENDGRID_API_KEY = str(os.environ.get('SENDGRID_API_KEY'))
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

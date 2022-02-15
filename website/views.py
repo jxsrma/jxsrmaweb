@@ -10,13 +10,14 @@ from django.http.response import JsonResponse
 from .models import Demosubs, EmailList, ImgGallery, Contact, Released
 from django.views.decorators.csrf import csrf_exempt
 
-from email.message import EmailMessage
+# from email.message import EmailMessage
 from django.template.loader import get_template
 
-from django.core.mail import EmailMessage
-from django.template import Context
-from django.template.loader import get_template
-
+# from django.core.mail import EmailMessage
+# from django.template import Context
+# from django.template.loader import get_template
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 # Create your views here.
 
@@ -29,28 +30,32 @@ def sendMail(emailData):
 
     if serviceType == 'demo':
         message = get_template("email/Demo.html").render({'name': userName})
-        mail = EmailMessage(
-            subject="Demo Submission Confirmation",
-            body=message,
+        mail = Mail(
             from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
-            to=[userEmail],
-            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+            to_emails=[userEmail],
+            subject="Demo Submission Confirmation",
+            html_content=message,
+            # reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
         )
-        mail.content_subtype = "html"
-        mail.send()
+        # mail.content_subtype = "html"
+        # mail.send()
+        sg = SendGridAPIClient(getattr(settings, "SENDGRID_API_KEY", None))
+        sg.send(mail)
     elif serviceType == 'contact':
         message = get_template(
             "email/contactus.html").render({'name': userName})
-        mail = EmailMessage(
-            subject="Query Submission Confirmation",
-            body=message,
+        mail = Mail(
             from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
-            to=[userEmail],
-            reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
+            to_emails=[userEmail],
+            subject="Query Submission Confirmation",
+            html_content=message,
+            # reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
         )
 
-        mail.content_subtype = "html"
-        mail.send()
+        # mail.content_subtype = "html"
+        # mail.send()
+        sg = SendGridAPIClient(getattr(settings, "SENDGRID_API_KEY", None))
+        sg.send(mail)
 
     emailFunc(userName, userEmail)
 
