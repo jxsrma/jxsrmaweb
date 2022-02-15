@@ -102,12 +102,14 @@ def bio(request):
         img_list = []
         for imgs in galleryImg:
 
-            with open('./static/images/'+str(imgs.img), 'rb') as image_file:
-                ImageData = base64.b64encode(image_file.read()).decode('utf-8')
+            # with open('./static/images/'+str(imgs.img), 'rb') as image_file:
+            #     ImageData = base64.b64encode(image_file.read()).decode('utf-8')
 
             imageLinkBase64 = {
-                'link': str(imgs.link),
-                'img': ImageData
+                'link': imgs.link,
+                'imgs': imgs.imgLink
+                # 'link': str(imgs.link),
+                # 'img': ImageData
             }
             img_list.append(imageLinkBase64.copy())
         return JsonResponse({
@@ -118,20 +120,20 @@ def bio(request):
 
 def rel(request):
     if request.method == 'GET':
-        albumArt = ''
+        # albumArt = ''
         relSongData = Released.objects.raw(
             'select * from website_released order by id DESC ')
         track_list = []
 
         for tracks in relSongData:
-            with open('./static/images/'+str(tracks.albumart), 'rb') as image_file:
-                albumArt = base64.b64encode(image_file.read()).decode('utf-8')
+            # with open('./static/images/'+str(tracks.albumart), 'rb') as image_file:
+            #     albumArt = base64.b64encode(image_file.read()).decode('utf-8')
             albumArtBase64 = {
-                'name': str(tracks.name),
-                'altImg': str(tracks.altImg),
-                'albumart': albumArt,
-                'sLink': str(tracks.sLink),
-                'genre': str(tracks.genre)
+                'name': tracks.name,
+                'altImg': tracks.altImg,
+                'albumart': tracks.albumartLink,
+                'sLink': tracks.sLink,
+                'genre': tracks.genre
             }
             track_list.append(albumArtBase64.copy())
         return JsonResponse({

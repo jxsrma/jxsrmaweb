@@ -79,7 +79,8 @@ export const Bio = (props) => {
                       return (
                         <a href={element.link} target="_blank" className="gallery__link">
                           <figure className="gallery__thumb">
-                            <img src={"data:image/png;base64," + element.img} alt="" className="gallery__image" />
+                            {/* <img src={"data:image/png;base64," + element.img} alt="" className="gallery__image" /> */}
+                            <img src={element.imgs} alt="" className="gallery__image" />
                           </figure>
                         </a>
 

@@ -54,7 +54,8 @@ export const Releases = (props) => {
                                                         <a href={element.sLink} target="blank" className="album ">
                                                             <h2 className="profile__name ">{element.name}</h2>
                                                             <p>{element.genre}</p>
-                                                            <img alt={element.altImage} src={"data:image/png;base64," + element.albumart} />
+                                                            {/* <img alt={element.altImage} src={"data:image/png;base64," + element.albumart} /> */}
+                                                            <img alt={element.altImage} src={element.albumart} />
                                                         </a>
                                                     </li>
                                                 </>

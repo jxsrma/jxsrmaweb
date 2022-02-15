@@ -11,8 +11,8 @@ class Demosubs(models.Model):
     t_dis = models.TextField()
 
 class ImgGallery(models.Model):
-    link = models.CharField(max_length=100)
-    img = models.ImageField(upload_to='images')
+    link = models.TextField()
+    imgLink = models.TextField()
 
 class Contact(models.Model):
     date = models.DateTimeField(default=datetime.now)
@@ -24,8 +24,8 @@ class Contact(models.Model):
 class Released(models.Model):
     name = models.CharField(max_length=100)
     altImg = models.CharField(max_length=100)
-    albumart = models.ImageField(upload_to='albumArt')
-    sLink = models.CharField(max_length=100)
+    albumartLink = models.TextField()
+    sLink = models.TextField()
     genre = models.CharField(max_length=100)
 
 class EmailList(models.Model):
