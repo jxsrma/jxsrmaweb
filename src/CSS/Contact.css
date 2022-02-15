@@ -37,6 +37,7 @@ body {
 
 .contactus p {
   padding-top: 50px;
+  padding-left: 10px;
   padding-bottom: 50px;
   font-size: 25px;
   text-align: center;
@@ -87,7 +88,7 @@ body {
 }
 
 .subject input {
-  width: 45.5%;
+  width: 46%;
   height: 30px;
   padding-left: 1%;
   margin-right: 5%;
@@ -146,4 +147,15 @@ body {
   transform: translateY(+.10rem);
   background-color: rgb(150, 150, 150);
   color: #000;
+}
+@media (max-width: 800px){
+  .contform .info input {
+    width: 40%;
+  }
+  .subject input {
+    width: 85.5%;
+  }
+  .message textarea {
+    width: 85%;
+  }
 }

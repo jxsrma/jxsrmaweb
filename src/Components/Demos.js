@@ -53,7 +53,7 @@ export const Demos = (props) => {
                     alert('Error !!Please Try Again Later')
                     console.error('Error !!Please Try Again Later')
                 } else {
-                    console.log(btoa(JSON.stringify(demoData)));
+                    // console.log(btoa(JSON.stringify(demoData)));
                     document.getElementById('Conf').innerHTML = 'Track is Submitted, You can submit more tracks';
                     setArtName('')
                     setEmail('')
@@ -68,7 +68,7 @@ export const Demos = (props) => {
                     return result.json()
                 }
             }).then(json => {
-              alert(JSON.stringify(json))
+            //   alert(JSON.stringify(json))
             })
         }
     }

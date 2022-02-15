@@ -39,6 +39,7 @@ body {
 
 .maininfocontainer p {
   padding-top: 50px;
+  padding-left: 10px;
   padding-bottom: 50px;
   font-size: 20px;
   text-align: center;
@@ -166,4 +167,16 @@ body {
 textarea {
   outline: none;
   overflow: auto;
+}
+
+@media (max-width: 900px){
+  .artinfo input {
+    width: 40%;
+  }
+  .trackinfo input {
+    width: 40%;
+  }
+  .extrainfo textarea {
+    width: 85.5%;
+  }
 }

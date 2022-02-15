@@ -43,7 +43,7 @@ export const Contact = (props) => {
                     alert('Error !!Please Try Again Later')
                     console.error('Error !!Please Try Again Later')
                 } else {
-                    console.log(btoa(JSON.stringify(contData)));
+                    // console.log(btoa(JSON.stringify(contData)));
                     document.getElementById('successMessage').innerHTML = 'You\'r Query is Submitted';
                     setcName('')
                     setcEmail('')
