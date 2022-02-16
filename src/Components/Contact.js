@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ContactCSS from '../CSS/Contact.css'
 import validator from 'validator'
 
@@ -15,6 +15,13 @@ export const Contact = (props) => {
         cSubject,
         cMess
     }
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          })
+      }, [])
 
     function submitMessage() {
         if (contData.cName === '') {

@@ -22,6 +22,10 @@ export const Bio = (props) => {
   }
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
     setLoading(true)
     getImages();
   }, []);

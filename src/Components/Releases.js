@@ -17,6 +17,10 @@ export const Releases = (props) => {
         setLoading(false)
     }
     useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
         setLoading(true)
         getTrackData();
     }, []);
@@ -37,13 +41,13 @@ export const Releases = (props) => {
                             <ul className="auto-grid" role="list" >
                                 {
                                     loading ?
-                                        <PropagateLoader 
-                                        size={10}
-                                        css={
-                                            {"padding-left": "50%"}
-                                        }
-                                        color={"#ffffff"}
-                                        loading={loading}
+                                        <PropagateLoader
+                                            size={10}
+                                            css={
+                                                { "padding-left": "50%" }
+                                            }
+                                            color={"#ffffff"}
+                                            loading={loading}
                                         />
                                         :
 
