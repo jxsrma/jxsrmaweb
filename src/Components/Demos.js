@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DemosCSS from "../CSS/Demos.css"
 import validator from 'validator'
 
@@ -20,6 +20,13 @@ export const Demos = (props) => {
         trackurl,
         infotext
     }
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          })
+      }, [])
 
     function submitDemo() {
 

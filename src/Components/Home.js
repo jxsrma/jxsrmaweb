@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomeCSS from "../CSS/Home.css"
 //"+{backg}+"
 export const Home = (props) => {
 
   document.title = 'JXSRMA | ' + props.title
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }, [])
 
   return (
     <>

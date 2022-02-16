@@ -66,9 +66,6 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'build'),
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'static'),
-            os.path.join(BASE_DIR, 'assets/static'),
-            os.path.join(BASE_DIR, 'assets'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -84,7 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jxsrmaweb.wsgi.application'
 
-STATIC_DIR = os.path.join(BASE_DIR, 'build/static')
+STATIC_DIR = os.path.join(BASE_DIR, 'build')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
@@ -144,7 +141,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR, os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [STATIC_DIR, os.path.join(BASE_DIR, 'static'),
+                    os.path.join(BASE_DIR, 'build/static'),
+                    os.path.join(BASE_DIR, 'templates'),
+                    os.path.join(BASE_DIR, 'static'),
+                    os.path.join(BASE_DIR, 'assets/static'),
+                    os.path.join(BASE_DIR, 'assets'),
+                    ]
+WEBPACK_LOADER = {
+    'MANIFEST_FILE': os.path.join(BASE_DIR, "build/manifest.json"),
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
