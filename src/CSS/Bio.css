@@ -4,16 +4,6 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* .active2::after {
-    content: '';
-    height: 1px;
-    left: 0;
-    width: 100%;
-    background: rgb(255, 255, 255);
-    position: absolute;
-    bottom: -5px;
-} */
-
 .biocontainer {
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url(../images/backg/portrait.jpg);
@@ -25,7 +15,6 @@ body {
 .bioInfo {
   color: #fff;
   justify-content: left;
-  /* padding-top: 25vh; */
   padding-left: 10vh;
   padding-right: 10vh;
   padding-bottom: 5vh;
@@ -64,11 +53,9 @@ body {
 .imgs {
   width: 281px;
   height: 281px;
-  /* margin-left: 70%; */
   border-radius: 250px;
   overflow: hidden;
   transition: 0.05s;
-  /* padding-top: 25vh; */
   transition: 1s;
 }
 
@@ -122,12 +109,12 @@ body {
 .gallery__image {
   display: block;
   width: 100%;
-  transition: 0.3s, 1s transform ease-in-out;
+  transition: 1s;
   overflow: hidden;
 }
 
 .gallery__image:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .gallery__caption {
@@ -155,8 +142,6 @@ body {
     justify-content: center;
   }
   .imgs {
-    /* margin-left: 0%; */
-    /* margin-right: auto; */
     transition: 0.05s;
   }
   .logoBio {
