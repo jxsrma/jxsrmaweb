@@ -20,8 +20,8 @@ export const Contact = (props) => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
-          })
-      }, [])
+        })
+    }, [])
 
     function submitMessage() {
         if (contData.cName === '') {
@@ -62,7 +62,7 @@ export const Contact = (props) => {
                     return result.json()
                 }
             }).then(json => {
-                
+
             })
         }
     }
@@ -70,8 +70,10 @@ export const Contact = (props) => {
     return (<div style={ContactCSS}>
         <div className="contactus">
 
-            <h1>Contact Me</h1>
-            <p>Your Query will be recieved by me</p>
+            <div className='blurbg'>
+                <h1>Contact Me</h1>
+                <p>Your Query will be recieved by me</p>
+            </div>
 
 
         </div>
@@ -79,8 +81,8 @@ export const Contact = (props) => {
             <div className="info">
                 <label>Your Info</label>
                 <br />
-                <input id='contForm1' value={cName} onChange={(e) => {setcName(e.target.value)}} type="text" name="Cname" placeholder="Enter Your Name" />
-                <input id='contForm2' value={cEmail} onChange={(e) => {setcEmail(e.target.value)}} type="email" name="Memail" placeholder="Enter Your Email" />
+                <input id='contForm1' value={cName} onChange={(e) => { setcName(e.target.value) }} type="text" name="Cname" placeholder="Enter Your Name" />
+                <input id='contForm2' value={cEmail} onChange={(e) => { setcEmail(e.target.value) }} type="email" name="Memail" placeholder="Enter Your Email" />
 
 
             </div>
@@ -89,7 +91,7 @@ export const Contact = (props) => {
 
                 <label >Subject</label>
                 <br />
-                <input id='contForm3' value={cSubject} onChange={(e) => {setcSubject(e.target.value)}} type="text" name="Msubject" placeholder="Subject" />
+                <input id='contForm3' value={cSubject} onChange={(e) => { setcSubject(e.target.value) }} type="text" name="Msubject" placeholder="Subject" />
 
             </div>
 
@@ -97,7 +99,7 @@ export const Contact = (props) => {
 
                 <label >Message</label>
                 <br />
-                <textarea id='contForm4' value={cMess} onChange={(e) => {setcMess(e.target.value)}} type="text" name="Mconserns" placeholder="Enter Your concerns" cols="30" rows="5"></textarea>
+                <textarea id='contForm4' value={cMess} onChange={(e) => { setcMess(e.target.value) }} type="text" name="Mconserns" placeholder="Enter Your concerns" cols="30" rows="5"></textarea>
                 <br />
 
                 <div className="btncont">

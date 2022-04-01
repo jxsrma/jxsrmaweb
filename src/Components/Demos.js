@@ -82,10 +82,13 @@ export const Demos = (props) => {
 
     return (<div style={DemosCSS}>
         <div className="maininfocontainer">
+            <div className='blurbg'>
+
             <h1>Demo Submittion</h1>
             <p>
                 Send your one of the best demos, <br /> I will review them and give constructive feedback.
             </p>
+            </div>
         </div>
         <div className="formcontainer">
             <div className="artinfo">
