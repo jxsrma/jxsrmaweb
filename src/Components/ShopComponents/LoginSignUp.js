@@ -36,7 +36,10 @@ export const LoginSignUp = () => {
                                 <button className='login-button-login' onClick={loginUser} type="button">Login</button>
                                 <button className='login-button-signup' onClick={SignUpPage} type="button">Sign Up</button>
                             </div>
-
+                    <p className='login-forgot-pass'>
+                    forgot password??
+                    </p>
+                            
                         </div>
 
                         :

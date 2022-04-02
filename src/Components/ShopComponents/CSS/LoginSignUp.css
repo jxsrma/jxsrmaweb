@@ -82,6 +82,11 @@
   transform: translateY(+.25rem);
 }
 
+.login-forgot-pass{
+  margin-top: 35px;
+  font-size: 13px;
+}
+
 /* *************Sign Up Page************* */
 
 .signup-input{
