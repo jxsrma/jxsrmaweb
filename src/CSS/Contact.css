@@ -27,7 +27,9 @@ body {
   background-position: center;
   object-fit: scale-down;
 }
-
+.blurbg{
+  backdrop-filter: blur(2px);
+}
 .contactus h1 {
   padding-top: 100px;
   text-align: center;
@@ -120,6 +122,11 @@ body {
 .message textarea:focus {
   outline: none;
   border-color: black;
+}
+
+.checkbox-label{
+  margin-left: 10px;
+  font-size: 17px;
 }
 
 .btncont {

@@ -28,6 +28,11 @@ body {
   background-size: cover;
   background-position: center;
   object-fit: scale-down;
+  
+}
+
+.blurbg{
+  backdrop-filter: blur(2px);
 }
 
 .maininfocontainer h1 {
@@ -137,6 +142,11 @@ body {
   border-color: black;
 }
 
+.checkbox-label{
+  margin-left: 10px;
+  font-size: 17px;
+}
+
 .btncont {
   padding-top: 20px;
   padding-bottom: 50px;
@@ -155,11 +165,11 @@ body {
   transition: 500ms;
 }
 
-.formcontainer .btn:hover{
-  transform: translateY(-.20rem);
+.formcontainer .btn:hover {
+  transform: translateY(-0.2rem);
 }
-.formcontainer .btn:active{
-  transform: translateY(+.10rem);
+.formcontainer .btn:active {
+  transform: translateY(+0.1rem);
   background-color: rgb(150, 150, 150);
   color: #000;
 }
@@ -169,7 +179,7 @@ textarea {
   overflow: auto;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .artinfo input {
     width: 40%;
   }

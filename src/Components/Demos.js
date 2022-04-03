@@ -10,23 +10,23 @@ export const Demos = (props) => {
     const [trackname, setTrackName] = useState('')
     const [trackurl, setTrackURL] = useState('')
     const [infotext, setInfoText] = useState('')
-
-    // const [img, setImg] = useState('')
+    const [subsNL, setsubsNL] = useState(true)
 
     let demoData = {
         artname,
         email,
         trackname,
         trackurl,
-        infotext
+        infotext,
+        subsNL
     }
 
     useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
-          })
-      }, [])
+        })
+    }, [])
 
     function submitDemo() {
 
@@ -60,13 +60,14 @@ export const Demos = (props) => {
                     alert('Error !!Please Try Again Later')
                     console.error('Error !!Please Try Again Later')
                 } else {
-                    // console.log(btoa(JSON.stringify(demoData)));
                     document.getElementById('Conf').innerHTML = 'Track is Submitted, You can submit more tracks';
                     setArtName('')
                     setEmail('')
                     setTrackName('')
                     setTrackURL('')
                     setInfoText('')
+                    setsubsNL(true)
+                    document.getElementById("checkboxId").checked = true;
 
                     for (let i = 1; i < 6; i++) {
                         document.getElementById('demoForm' + i).value = '';
@@ -75,17 +76,19 @@ export const Demos = (props) => {
                     return result.json()
                 }
             }).then(json => {
-            //   alert(JSON.stringify(json))
             })
         }
     }
 
     return (<div style={DemosCSS}>
         <div className="maininfocontainer">
-            <h1>Demo Submittion</h1>
-            <p>
-                Send your one of the best demos, <br /> I will review them and give constructive feedback.
-            </p>
+            <div className='blurbg'>
+
+                <h1>Demo Submittion</h1>
+                <p>
+                    Send your one of the best demos, <br /> I will review them and give constructive feedback.
+                </p>
+            </div>
         </div>
         <div className="formcontainer">
             <div className="artinfo">
@@ -106,6 +109,12 @@ export const Demos = (props) => {
                 <br />
                 <textarea id='demoForm5' value={infotext} onChange={(e) => { setInfoText(e.target.value) }} type="text" name="infotext" placeholder="Enter any information related to Track. Also add your Social links" cols="30" rows="5"></textarea>
                 <br />
+                <div>
+                    <input className="checkbox-subs" type="checkbox" defaultChecked={subsNL} onChange={(e) => { setsubsNL(!subsNL) }} id='checkboxId' />
+                    <label className='checkbox-label' htmlFor='checkboxId'>
+                        Subscribe to my News Letter
+                    </label>
+                </div>
                 <div className="btncont">
                     <button onClick={submitDemo} className='btn' >Submit</button>
                 </div>
