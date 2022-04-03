@@ -142,6 +142,11 @@ body {
   border-color: black;
 }
 
+.checkbox-label{
+  margin-left: 10px;
+  font-size: 17px;
+}
+
 .btncont {
   padding-top: 20px;
   padding-bottom: 50px;

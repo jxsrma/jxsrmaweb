@@ -9,11 +9,14 @@ export const Contact = (props) => {
     const [cEmail, setcEmail] = useState('')
     const [cSubject, setcSubject] = useState('')
     const [cMess, setcMess] = useState('')
+    const [subsNL, setsubsNL] = useState(true)
+
     let contData = {
         cName,
         cEmail,
         cSubject,
-        cMess
+        cMess,
+        subsNL
     }
 
     useEffect(() => {
@@ -50,12 +53,13 @@ export const Contact = (props) => {
                     alert('Error !!Please Try Again Later')
                     console.error('Error !!Please Try Again Later')
                 } else {
-                    // console.log(btoa(JSON.stringify(contData)));
                     document.getElementById('successMessage').innerHTML = 'You\'r Query is Submitted';
                     setcName('')
                     setcEmail('')
                     setcSubject('')
                     setcMess('')
+                    setsubsNL(true)
+                    document.getElementById("checkboxId").checked = true;
                     for (let i = 1; i < 5; i++) {
                         document.getElementById('contForm' + i).value = '';
                     }
@@ -101,6 +105,12 @@ export const Contact = (props) => {
                 <br />
                 <textarea id='contForm4' value={cMess} onChange={(e) => { setcMess(e.target.value) }} type="text" name="Mconserns" placeholder="Enter Your concerns" cols="30" rows="5"></textarea>
                 <br />
+                <div>
+                    <input className="checkbox-subs" type="checkbox" defaultChecked={subsNL} onChange={(e) => { setsubsNL(!subsNL) }} id='checkboxId' />
+                    <label className='checkbox-label' htmlFor='checkboxId'>
+                        Subscribe to my News Letter
+                    </label>
+                </div>
 
                 <div className="btncont">
                     <button className='btn' onClick={submitMessage} >Send</button>

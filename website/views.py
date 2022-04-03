@@ -21,8 +21,9 @@ from sendgrid.helpers.mail import Mail
 
 # Create your views here.
 
+
 @csrf_exempt
-def sendMail(emailData):
+def sendMail(emailData, subsNL):
     time.sleep(5)
     userName = emailData['name']
     userEmail = emailData['email']
@@ -35,10 +36,7 @@ def sendMail(emailData):
             to_emails=[userEmail],
             subject="Demo Submission Confirmation",
             html_content=message,
-            # reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
         )
-        # mail.content_subtype = "html"
-        # mail.send()
         sg = SendGridAPIClient(getattr(settings, "SENDGRID_API_KEY", None))
         sg.send(mail)
     elif serviceType == 'contact':
@@ -49,15 +47,12 @@ def sendMail(emailData):
             to_emails=[userEmail],
             subject="Query Submission Confirmation",
             html_content=message,
-            # reply_to=[getattr(settings, "APPLICATION_EMAIL", None)],
         )
-
-        # mail.content_subtype = "html"
-        # mail.send()
         sg = SendGridAPIClient(getattr(settings, "SENDGRID_API_KEY", None))
         sg.send(mail)
 
-    emailFunc(userName, userEmail)
+    if subsNL:
+        emailFunc(userName, userEmail)
 
 
 def emailFunc(userName, userEmail):
@@ -106,15 +101,9 @@ def bio(request):
 
         img_list = []
         for imgs in galleryImg:
-
-            # with open('./static/images/'+str(imgs.img), 'rb') as image_file:
-            #     ImageData = base64.b64encode(image_file.read()).decode('utf-8')
-
             imageLinkBase64 = {
                 'link': imgs.link,
                 'imgs': imgs.imgLink
-                # 'link': str(imgs.link),
-                # 'img': ImageData
             }
             img_list.append(imageLinkBase64.copy())
         return JsonResponse({
@@ -125,14 +114,11 @@ def bio(request):
 
 def rel(request):
     if request.method == 'GET':
-        # albumArt = ''
         relSongData = Released.objects.raw(
             'select * from website_released order by id DESC ')
         track_list = []
 
         for tracks in relSongData:
-            # with open('./static/images/'+str(tracks.albumart), 'rb') as image_file:
-            #     albumArt = base64.b64encode(image_file.read()).decode('utf-8')
             albumArtBase64 = {
                 'name': tracks.name,
                 'altImg': tracks.altImg,
@@ -159,10 +145,12 @@ def demo(request):
             request.body).decode('utf-8'))
 
         artname = demoData['artname']
-        email = demoData['email']
         trackname = demoData['trackname']
+        email = demoData['email']
         trackurl = demoData['trackurl']
         infotext = demoData['infotext']
+        subsNL = demoData['subsNL']
+
         demoData = Demosubs(a_name=artname, a_email=email,
                             t_name=trackname, t_url=trackurl, t_dis=infotext)
         demoData.save()
@@ -172,7 +160,9 @@ def demo(request):
             "name": artname,
             "email": email
         }
-        mailThread = threading.Thread(target=sendMail,args=(emailData,))
+
+        mailThread = threading.Thread(
+            target=sendMail, args=(emailData, subsNL,))
         mailThread.start()
         return JsonResponse({
             "success": True,
@@ -193,7 +183,7 @@ def cont(request):
         Cemail = contData['cEmail']
         Csubject = contData['cSubject']
         Ctext = contData['cMess']
-
+        subsNL = contData['subsNL']
         meg = Contact(name=Cname, email=Cemail,
                       subject=Csubject, message=Ctext)
         meg.save()
@@ -204,9 +194,10 @@ def cont(request):
             "name": Cname,
             "email": Cemail
         }
-        mailThread = threading.Thread(target=sendMail,args=(emailData,))
+        mailThread = threading.Thread(
+            target=sendMail, args=(emailData, subsNL,))
         mailThread.start()
-        
+
         return JsonResponse({
             "success": True,
         })
