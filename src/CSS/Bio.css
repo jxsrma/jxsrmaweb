@@ -68,6 +68,7 @@ body {
 }
 
 .gallery {
+  backdrop-filter: blur(5px);
   transition: 0.3s;
   min-height: 30vh;
   z-index: 10;
