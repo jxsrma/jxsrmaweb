@@ -36,10 +36,11 @@ body {
   padding-top: 40px;
   padding-bottom: 50px;
   padding-left: 30px;
-  width: 200px;
+  width: 20vh;
 }
 
 .bioInfo p {
+  font-size: 2.4vh;
   text-indent: 50px;
   text-align: justify;
 }

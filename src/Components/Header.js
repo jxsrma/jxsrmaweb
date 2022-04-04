@@ -42,7 +42,7 @@ export const Header = (props) => {
                     <label htmlFor="logo">
                         <Link to="/"><img src={LogoW} className="logo" alt='Logo' /></Link>
                     </label>
-                    <ul>
+                    <ul className='blur-b'>
                         <li><NavLink to="/" onClick={changeCheckBox}>Home</NavLink></li>
                         <li><NavLink to="/biography" onClick={changeCheckBox}>Biography</NavLink></li>
                         <li><NavLink to="/releases" onClick={changeCheckBox}>Releases</NavLink></li>
