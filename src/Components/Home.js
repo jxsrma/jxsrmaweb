@@ -6,10 +6,10 @@ export const Home = (props) => {
   document.title = 'JXSRMA | ' + props.title
 
   useEffect(() => {
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: "smooth"
-    // })
+    window.scrollTo({
+       top: 0,
+       behavior: "smooth"
+    })
   }, [])
 
   return (
