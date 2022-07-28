@@ -33,3 +33,6 @@ class EmailList(models.Model):
     email = models.EmailField(max_length=100)
     active = models.BooleanField(default=True)
     
+class HomeScreenYT(models.Model):
+    link = models.TextField()
+    

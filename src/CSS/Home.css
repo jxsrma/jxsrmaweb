@@ -66,6 +66,7 @@ body {
   justify-content: center;
 }
 .YT iframe {
+  border-radius: 2%;
   border: none;
   padding-left: 5%;
   width: 90%;

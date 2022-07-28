@@ -1,15 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HomeCSS from "../CSS/Home.css"
 //"+{backg}+"
 export const Home = (props) => {
 
   document.title = 'JXSRMA | ' + props.title
+  const [YoutubeVideo, setYoutubeVideo] = useState([])
 
+  const getYTVideo = async () => {
+    const response = await fetch('sevice/home/ytvideo')
+    const ytLink = await response.json()
+    setYoutubeVideo(await ytLink.YTLink)
+  }
   useEffect(() => {
     window.scrollTo({
-       top: 0,
-       behavior: "smooth"
+      top: 0,
+      behavior: "smooth"
     })
+    getYTVideo();
   }, [])
 
   return (
@@ -26,7 +33,7 @@ export const Home = (props) => {
 
           <div className="YT">
             <iframe
-              src="https://www.youtube.com/embed/3RqNYbEdjBU"
+              src={YoutubeVideo}
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
