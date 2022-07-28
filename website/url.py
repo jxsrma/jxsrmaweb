@@ -18,5 +18,6 @@ urlpatterns = [
     path('cont/send', views.cont,name='cont'),
     path('sevice/email', views.sendMail,name='emailService'),
     path('sevice/subs', views.emailSubUser,name='subsService'),
+    path('sevice/home/ytvideo', views.home,name='YtVideo'),
 
 ]

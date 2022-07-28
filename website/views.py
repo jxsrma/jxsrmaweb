@@ -7,7 +7,7 @@ import time
 from django.conf import settings
 from django.shortcuts import render
 from django.http.response import JsonResponse
-from .models import Demosubs, EmailList, ImgGallery, Contact, Released
+from .models import Demosubs, EmailList, ImgGallery, Contact, Released, HomeScreenYT
 from django.views.decorators.csrf import csrf_exempt
 
 # from email.message import EmailMessage
@@ -20,6 +20,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 # Create your views here.
+
 
 
 @csrf_exempt
@@ -93,11 +94,18 @@ def index(request):
 
 
 @csrf_exempt
+def home(request):
+    if request.method == 'GET':
+        YtVideo = HomeScreenYT.objects.all()
+        return JsonResponse({
+            "YTLink" : YtVideo[0].link
+        })                   
+
+@csrf_exempt
 def bio(request):
     if request.method == 'GET':
-        ImageData = ''
         galleryImg = ImgGallery.objects.raw(
-            'select * from website_imggallery order by random()')
+            'SELECT * from website_imggallery order by random()')
 
         img_list = []
         for imgs in galleryImg:
