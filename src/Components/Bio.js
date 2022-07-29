@@ -54,7 +54,7 @@ export const Bio = (props) => {
 
         </div>
       </div>
-      {/* <div className="gallery-cont" >
+      <div className="gallery-cont" >
 
         <div className="gallery">
           {
@@ -75,45 +75,40 @@ export const Bio = (props) => {
               />
               :
               <>
-                <div className="gallery__column">
-                <ul className="galleryUL">
-                  {
-                    ImageData.map((element) => {
-                      return (
-                        <li className="gallery_li">
-                          <a href={element.link} target="_blank" rel="noopener noreferrer" className="gallery__link">
-                            <figure className="gallery__thumb">
-                              <img src={element.imgs} alt="" className="gallery__image" />
-                            </figure>
-                          </a></li>
-                      )
-                    })
-                  }
-                </ul>
+                <div class="masonry">
+                  <div class="item">
+                    {
+                      ImageData.map((element) => {
+                        return (
+                          <a href={element.link} target="_blank" rel="noopener noreferrer" className="imglink">
+                            <img src={element.imgs} className="mainImg"></img>
+                          </a>
+                        )
+                      })}
+                  </div>
                 </div>
+                {/* <div className="gallery__column">
+                  <ul className="galleryUL">
+                    {
+
+                      ImageData.map((element) => {
+                        console.log(element.link);
+                        return (
+                          <li className="gallery_li">
+                            <a href={element.link} target="_blank" rel="noopener noreferrer" className="gallery__link">
+                              <figure className="gallery__thumb">
+                                <img src={element.imgs} alt="" className="gallery__image" />
+                              </figure>
+                            </a></li>
+                        )
+                      })
+                    }
+                  </ul>
+                </div> */}
               </>
           }
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
-
-
-{
-                /* <div className="gallery__column"> </div>*/
-  /* <div className="gallery">
-
-<div className="gallery-item">
-  <a href={element.link}>
-    <img className="gallery-image" src={element.imgs} alt=""></img>
-  </a>
-</div>
-</div>
-
-
-<a href={element.link} target="_blank" rel="noopener noreferrer" className="gallery__link">
-<figure className="gallery__thumb">
-  <img src={element.imgs} alt="" className="gallery__image" />
-</figure>
-</a> */}
