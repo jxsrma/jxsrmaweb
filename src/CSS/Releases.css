@@ -60,11 +60,10 @@ body {
   list-style-type: none;
 }
 
-
 .auto-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 15rem);
-  padding: 50px;
+  padding: 30px;
   justify-content: center;
   object-fit: cover;
   list-style: none;
@@ -74,8 +73,6 @@ body {
   margin-top: var(--flow-space, 1em);
   margin: 50px;
 }
-
-
 
 .album {
   display: flex;
