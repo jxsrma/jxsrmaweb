@@ -16,3 +16,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jxsrmaweb.settings')
 
 application = get_wsgi_application()
 application = WhiteNoise(application)
+app = application
