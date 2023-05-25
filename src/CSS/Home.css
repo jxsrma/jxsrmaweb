@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap");
 body {
-  line-height: 1.5;
-  font-family: "Montserrat", sans-serif;
-  background-color: black;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
 }
+
 
 /* .active1::after {
     content: '';
@@ -16,104 +17,106 @@ body {
 } */
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .banner {
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-    url(../images/backg/portrait.jpg);
-  background-size: cover;
-  background-position: center;
-  object-fit: scale-down;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../images/backg/portrait.jpg);
+    background-size: cover;
+    background-position: center;
+    object-fit: scale-down;
 }
 
 .home h1 {
-  padding-top: 60vh;
-  padding-bottom: 30vh;
-  text-align: center;
-  font-size: 70px;
-  color: white;
+    padding-top: 60vh;
+    padding-bottom: 30vh;
+    text-align: center;
+    font-size: 70px;
+    color: white;
 }
 
 .homep {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 .homep h1 {
-  padding: 30px;
-  font-size: 30px;
+    padding: 30px;
+    font-size: 30px;
 }
 
+
+/* 
 .homep iframe {
-  /* border: none;
-  padding-left: 5%;
-  width: 90%;
-  height: 100vh; */
-}
+    border: none;
+    padding-left: 5%;
+    width: 90%;
+    height: 100vh;
+} */
 
 .home-releases {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .YT {
-  padding: 2%;
-  display: flex;
-  justify-content: center;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
 }
+
 .YT iframe {
-  border-radius: 2%;
-  border: none;
-  padding-left: 5%;
-  width: 90%;
-  height: 100vh;
-  display: block;
-  padding-left: 0;
-  object-fit: scale-down;
-  max-height: 480px !important;
-  max-width: 854px !important;
+    border-radius: 2%;
+    border: none;
+    padding-left: 5%;
+    width: 90%;
+    height: 100vh;
+    display: block;
+    padding-left: 0;
+    object-fit: scale-down;
+    max-height: 480px !important;
+    max-width: 854px !important;
 }
 
 .spotify-artist {
-  padding: 2%;
-  display: flex;
-  justify-content: center;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
 }
 
 .spotify-artist iframe {
-  margin-left: 10%;
-  margin-right: 10%;
-  border-radius: 12px;
-  border-style: none;
-  width: 60%;
-  height: 300px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 12px;
+    border-style: none;
+    width: 60%;
+    height: 60vh;
 }
 
 @media (max-width: 950px) {
-  .home h1 {
-    font-size: 300%;
-  }
-  .homep h1 {
-    padding: auto;
-    font-size: 200%;
-  }
-  .active1::after {
-    width: 250px;
-  }
+    .home h1 {
+        font-size: 300%;
+    }
+    .homep h1 {
+        padding: auto;
+        font-size: 200%;
+    }
+    .active1::after {
+        width: 250px;
+    }
 }
 
 @media (max-width: 800px) {
-  .spotify-artist iframe {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-  }
-  .YT iframe{
-  height: 60vh;
-  } 
+    .spotify-artist iframe {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+    }
+    .YT iframe {
+        height: 60vh;
+    }
 }

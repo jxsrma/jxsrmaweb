@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jxsrmaweb.wsgi.application'
+WSGI_APPLICATION = 'jxsrmaweb.wsgi.app'
 
 STATIC_DIR = os.path.join(BASE_DIR, 'build')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -140,12 +139,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR, os.path.join(BASE_DIR, 'static'),
+STATICFILES_DIRS = [STATIC_DIR,
                     os.path.join(BASE_DIR, 'build/static'),
                     os.path.join(BASE_DIR, 'templates'),
-                    os.path.join(BASE_DIR, 'static'),
                     ]
 WEBPACK_LOADER = {
     'MANIFEST_FILE': os.path.join(BASE_DIR, "build/manifest.json"),
@@ -161,7 +159,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://jxsrma.herokuapp.com'
 ]
 
 MAIN_EMAIL = str(os.environ.get('MAIN_EMAIL'))
@@ -176,5 +173,3 @@ EMAIL_HOST_USER = MAIN_EMAIL
 EMAIL_HOST_PASSWORD = MAIN_EMAIL_PASSWORD
 APPLICATION_EMAIL = 'JXSRMA<'+MAIN_EMAIL+'>'
 DEFAULT_FROM_EMAIL = 'JXSRMA<'+MAIN_EMAIL+'>'
-
-django_heroku.settings(locals())

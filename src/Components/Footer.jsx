@@ -58,30 +58,30 @@ export const Footer = () => {
                     <div className="footer-col">
                         <h4>Follow</h4>
                         <ul>
-                            <li><a href="https://instagram.com/jxsrma" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" Style="margin-right: 10px"></i>Instagram</a></li>
-                            <li><a href="https://www.youtube.com/channel/UC_lMuUU9UkJNM0_KP6Hl2vg" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" Style="margin-right: 10px"></i>YouTube</a></li>
-                            <li><a href="https://facebook.com/JXSRMA" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" Style="margin-right: 10px"></i>Facebook</a></li>
-                            <li><a href="https://twitter.com/jxsrma" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" Style="margin-right: 10px"></i>Twitter</a></li>
-                            <li><a href="https://discord.gg/9DkvHyYWBE" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord" Style="margin-right: 10px"></i>Discord</a></li>
-                            <li><a href="https://www.twitch.tv/jxsrma" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch" Style="margin-right: 10px"></i>Twitch</a></li>
+                            <li><a href="https://instagram.com/jxsrma" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram" style={{marginRight: "10px"}}></i>Instagram</a></li>
+                            <li><a href="https://www.youtube.com/channel/UC_lMuUU9UkJNM0_KP6Hl2vg" target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube" style={{marginRight: "10px"}}></i>YouTube</a></li>
+                            <li><a href="https://facebook.com/JXSRMA" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook" style={{marginRight: "10px"}}></i>Facebook</a></li>
+                            <li><a href="https://twitter.com/jxsrma" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter" style={{marginRight: "10px"}}></i>Twitter</a></li>
+                            <li><a href="https://discord.gg/9DkvHyYWBE" target="_blank" rel="noopener noreferrer"><i className="fab fa-discord" style={{marginRight: "10px"}}></i>Discord</a></li>
+                            <li><a href="https://www.twitch.tv/jxsrma" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitch" style={{marginRight: "10px"}}></i>Twitch</a></li>
                         </ul>
                     </div>
                     <div className="footer-col">
                         <h4>Stream</h4>
                         <ul>
-                            <li><a href="https://open.spotify.com/artist/76RdxImQYMELfBJ99W7QsE" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify" Style="margin-right: 10px"></i>Spotify</a></li>
-                            <li><a href="https://soundcloud.com/jxsrma" target="_blank" rel="noopener noreferrer"><i class="fab fa-soundcloud" Style="margin-right: 10px"></i>SoundCloud</a></li>
-                            <li><a href="https://music.amazon.in/artists/B08PNSQ44V/jxsrma" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" Style="margin-right: 10px"></i>Amazon</a></li>
-                            <li><a href="https://music.apple.com/in/artist/jxsrma/1542925618" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" Style="margin-right: 10px"></i>Apple</a></li>
-                            <li><a href="https://songwhip.com/jxsrma" target="_blank" rel="noopener noreferrer"><i class="fas fa-headphones" Style="margin-right: 10px"></i>JioSaavan & more</a></li>
+                            <li><a href="https://open.spotify.com/artist/76RdxImQYMELfBJ99W7QsE" target="_blank" rel="noopener noreferrer"><i className="fab fa-spotify" style={{marginRight: "10px"}}></i>Spotify</a></li>
+                            <li><a href="https://soundcloud.com/jxsrma" target="_blank" rel="noopener noreferrer"><i className="fab fa-soundcloud" style={{marginRight: "10px"}}></i>SoundCloud</a></li>
+                            <li><a href="https://music.amazon.in/artists/B08PNSQ44V/jxsrma" target="_blank" rel="noopener noreferrer"><i className="fab fa-amazon" style={{marginRight: "10px"}}></i>Amazon</a></li>
+                            <li><a href="https://music.apple.com/in/artist/jxsrma/1542925618" target="_blank" rel="noopener noreferrer"><i className="fab fa-apple" style={{marginRight: "10px"}}></i>Apple</a></li>
+                            <li><a href="https://songwhip.com/jxsrma" target="_blank" rel="noopener noreferrer"><i className="fas fa-headphones" style={{marginRight: "10px"}}></i>JioSaavan & more</a></li>
                         </ul>
                     </div>
                     <div className="footer-col">
                         <h4>Info</h4>
                         <ul>
-                            <li><Link to="/contact"><i class="fas fa-headset" Style="margin-right: 10px"></i>Contact Us</Link></li>
-                            <li><a href="https://www.linkedin.com/in/jash-sharma-607940182/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code" Style="margin-right: 10px"></i>About Developer</a></li>
-                            <li><a href="https://github.com/Hacker00619/jxsrmaweb" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" Style="margin-right: 10px"></i>Github Repo</a></li>
+                            <li><Link to="/contact"><i className="fas fa-headset" style={{marginRight: "10px"}}></i>Contact Us</Link></li>
+                            <li><a href="https://www.linkedin.com/in/jash-sharma-607940182/" target="_blank" rel="noopener noreferrer"><i className="fas fa-code" style={{marginRight: "10px"}}></i>About Developer</a></li>
+                            <li><a href="https://github.com/Hacker00619/jxsrmaweb" target="_blank" rel="noopener noreferrer"><i className="fab fa-github" style={{marginRight: "10px"}}></i>Github Repo</a></li>
 
                         </ul>
                     </div>

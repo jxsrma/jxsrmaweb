@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Router, Routes, Route } from 'react-router-dom';
+// import { Router, Routes, Route } from 'react-router-dom';
 import ShopCSS from '../CSS/Shop.css'
-import { LoginSignUp } from './ShopComponents/LoginSignUp';
+// import { LoginSignUp } from './ShopComponents/LoginSignUp';
 export const Shop = (props) => {
     document.title = 'JXSRMA | ' + props.title
 
@@ -14,7 +14,7 @@ export const Shop = (props) => {
 
 
     return (<div style={ShopCSS}>
-        <div class="shopcont">
+        <div className="shopcont">
             <h1>COMING SOON</h1>            
         </div>
     </div >);
