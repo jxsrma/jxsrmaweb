@@ -1,3 +1,4 @@
+## Discontinued - <a href = 'https://github.com/jxsrma/dj-web-front'> Visit new Repo </a>
 <center>
 <a href = 'https://jxsrma.herokuapp.com'>
 <img src="https://i.ibb.co/Rztmh4g/JXSRMA.png" alt="drawing" width="300"/>
@@ -48,7 +49,7 @@ This website is an Artist Profile Website.
 
 <td>
 <a href = 'https://jxsrma.openinapp.co/twitter/jxsrma'>
-<img src="https://1000logos.net/wp-content/uploads/2021/04/Twitter-logo.png" alt="Twitter" width="30"/>
+<img src="https://freelogopng.com/images/all_img/1690643640twitter-x-icon-png.png" alt="Twitter" width="30"/>
 </a>
 </td>
 
